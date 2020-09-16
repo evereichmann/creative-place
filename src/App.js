@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  state ={
+    images: []
+  }
+  componentDidMount = () => {
+    fetch("http://localhost:3000/images?_limit=10'")
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({images: data})
+    })
+  }
+
+  renderImage = () => {
+  { return this.state.images.map(image => {
+    return (<img height="200" width="200" src={image.img_url}/>)
+  })}
+  }
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        { this.renderImage() }
     </div>
   );
+  }
 }
 
 export default App;
