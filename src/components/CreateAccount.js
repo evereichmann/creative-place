@@ -6,7 +6,8 @@ function CreateAccount() {
     const onSubmit = data => console.log(data);
 
     return ( 
-        <div>
+        <div id="main-body">
+        <div id="form-content">  
         <form onSubmit={handleSubmit(onSubmit)}>
             <input 
                 type="text" 
@@ -44,6 +45,7 @@ function CreateAccount() {
                 { errors.password && 'Password Error: needs to be 8 - 20 charaters'}
             <input type="submit" />
       </form>
+      </div>  
       </div>
      );
 }

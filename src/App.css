@@ -66,8 +66,34 @@ html {
  #nav-container{
     border: 0;
     padding:0px;
-    margin-top: -23px;
+    margin-top: -24px;
     vertical-align: baseline;
     background-image: url("https://i.ibb.co/bWvG8qd/Screen-Shot-2020-09-16-at-3-17-42-PM.png");
     height: 80px;
  }
+
+ #main-body{
+    border: 0;
+    padding:0px;
+    margin-top: -22px;
+    background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
+    height: 500px; 
+ }
+
+ #main-content{
+    margin-left: 15px;
+    padding: 15px;
+ }
+
+ #form-content{
+    margin-left: 21%;
+    padding: 15%;
+ }
+
+ /* footer{
+    border: 0;
+    padding: 0px;
+    margin-top: -17px;
+    height: 35px;
+    background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
+ } */
