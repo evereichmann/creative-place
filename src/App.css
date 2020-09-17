@@ -88,7 +88,7 @@ html {
  /* main page content under navbar */
  #main-body{
   background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
-  height: 500px; 
+  height: 540px; 
 }
 
 #main-content{
@@ -154,8 +154,8 @@ html {
   opacity: 0.7;
   position: absolute;
   height: 300px;
-  right: 3%;
-  bottom: -12%;
+  right: 35px;
+  bottom: -260px;
   transform: rotate(40deg);
 }
  /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
