@@ -2,7 +2,7 @@ html {
     margin:0; 
     padding:0; 
     } 
-
+/* Main page cloud animation */
   .cloud {
       z-index: -5;
       position: absolute;
@@ -112,8 +112,7 @@ html {
     0% {margin-left: 100%;}
     100% {margin-left: -150%;}
   }
-
-
+/* header animation and style */
 #sitename{
     font-family: 'Lobster';
   /*   color: darkgrey; */
@@ -137,14 +136,9 @@ html {
     height: 250px;
     width: 600px;
     transform: translate(-50%, -50%);
-      /* attempt to get rid of jaggies when rotated */
     transform-style: preserve-3d;
-  /*   backface-visibility: hidden; */
-    /* nice rounded corners */
     border-radius: 15px;
-    /* set the swing origin (nail body) */
     transform-origin: 50% -75px;
-    /* animate the swing with pendulum-style easing */
     animation: swing 3s infinite alternate ease-in-out;
   }
   
@@ -167,14 +161,31 @@ html {
     0% { transform: rotate(-1.5deg) }
     100% { transform: rotate(1.5deg) }
   }
-  
+
+
+  /* Navbar on main page */
  #nav-bar{
-    margin-left: 15px;
-    padding: 15px;
-    /* background-color: brown; */
- } 
+    padding: 50px;
+  } 
+  
+  #nav-bar h3 {
+    font-family: 'Lobster';
+    font-size: 26px;
+    border-radius: 15px;
+    color: 	hsl(30, 100%, 20%);
+    border: solid hsl(30, 100%, 20%) 2px;
+    padding: 10px;
+    margin-right: 40px;
+    display: inline;
+ }
+
+ #nav-bar h3:hover { 
+   background-color: hsl(30, 100%, 20%);
+   color:	hsla(23, 47%, 37%, 1); 
+  }
 
  #nav-container{
+    position: relative;
     border: 0;
     padding:0px;
     margin-top: -24px;
@@ -183,19 +194,55 @@ html {
     height: 80px;
  }
 
+ /* main page content under navbar */
  #main-body{
-    border: 0;
-    padding:0px;
-    margin-top: -22px;
-    background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
-    height: 500px; 
+  /* border: 0; */
+  /* padding:0px; */
+  /* margin-top: 50px; */
+  background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
+  height: 500px; 
+}
+
+#main-content{
+   margin-left: 40px;
+   padding: 15px;
+}
+
+#main-subcontent{
+  padding-top: 150px;
+}
+
+#rock{
+  z-index: 1;
+  position: absolute;
+}
+
+#rock-text{
+  z-index: 2;
+  padding: 30px;
+  position: absolute;
+  font-family: 'Lobster';
+}
+
+ /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
+
+ #nav-admin h3{
+  font-family: 'Lobster';
+  font-size: 26px;
+  border-radius: 15px;
+  color: 	red;
+  border: solid red 2px;
+  padding: 10px;
+  margin-right: 40px;
+  display: inline;
  }
 
- #main-content{
-    margin-left: 15px;
-    padding: 15px;
+ #nav-admin h3:hover { 
+  background-color: red;
+  color:	white; 
  }
 
+/* form styling */
  #form-content{
     margin-left: 21%;
     padding: 15%;

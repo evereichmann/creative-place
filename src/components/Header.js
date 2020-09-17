@@ -17,7 +17,13 @@ const Header = () => {
                     </div>
                     <img id="background" src="https://i.ibb.co/0DHnd3n/Screen-Shot-2020-09-15-at-12-47-31-PM.png" />
                     <div id="nav-container">
-                            <AdminNav />
+                        <div id="nav-bar">
+                            <h3>Hello Admin</h3> 
+                            <h3>Logout</h3>   
+                            <h3>Library</h3>
+                            <h3>Skill Drills</h3>    
+                            <h3>Approve Suggestion</h3>    
+                        </div>
                     </div>      
             </div>
         </div>
