@@ -2,116 +2,7 @@ html {
     margin:0; 
     padding:0; 
     } 
-/* Main page cloud animation */
-  .cloud {
-      z-index: -5;
-      position: absolute;
-      background-image: url('https://www.dl.dropboxusercontent.com/s/31ivp5fsjcgytgp/cloud1.png');
-      background-repeat: repeat;
-      width: 176px;
-      height: 114px;
-  }
-  
-  #cloud1 {
-      top: 40px;
-      left: 400px;
-      -webkit-animation: movingclouds 35s linear infinite;
-      -moz-animation: movingclouds 35s linear infinite;
-      -o-animation: movingclouds 35s linear infinite;
-    z-index: -5;
-  }
-  
-  #cloud2 {
-      top: 100px;
-      left: 600px;
-      -webkit-animation: movingclouds 30s linear infinite;
-      -moz-animation: movingclouds 3s linear infinite;
-      -o-animation: movingclouds 3s linear infinite;
-    z-index: -5;
-  }
-  
-  #cloud3 {
-      top: 100px;
-      left: 100px;
-      -webkit-transform: scale(0.9);
-      -moz-transform: scale(0.9);
-      -ms-transform: scale(0.9);
-      transform: scale(0.9);
-      opacity: 0.9; 
-      -webkit-animation: movingclouds 40s linear infinite;
-      -moz-animation: movingclouds 4s linear infinite;
-      -o-animation: movingclouds 4s linear infinite;
-    z-index: -5;
-  }
-  
-  #cloud4 {
-      top: -20px;
-      left: 40px;
-      -webkit-transform: scale(0.8);
-      -moz-transform: scale(0.8);
-      -ms-transform: scale(0.8);
-      transform: scale(0.8);
-      opacity: 0.8; 
-      -webkit-animation: movingclouds 45s linear infinite;
-      -moz-animation: movingclouds 5s linear infinite;
-      -o-animation: movingclouds 5s linear infinite;
-    z-index: -5;
-  }
-  
-  #cloud5 {
-      top: 100px;
-      left: 500px;
-      -webkit-transform: scale(0.7);
-      -moz-transform: scale(0.7);
-      -ms-transform: scale(0.7);
-      transform: scale(0.7);
-      opacity: 0.7; 
-      -webkit-animation: movingclouds 40s linear infinite;
-      -moz-animation: movingclouds 1s linear infinite;
-      -o-animation: movingclouds 1s linear infinite;
-    z-index: -5;
-  }
-  
-  #cloud6 {
-      top: 20px;
-      left: 200px;
-      -webkit-transform: scale(0.5);
-      -moz-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-      transform: scale(0.5);
-      opacity: 0.5; 
-      -webkit-animation: movingclouds 30s linear infinite;
-      -moz-animation: movingclouds 1s linear infinite;
-      -o-animation: movingclouds 1s linear infinite;
-    z-index: -5;
-  }
-  
-  #cloud7 {
-      top: 92px;
-      left: 700px;
-      -webkit-transform: scale(0.4);
-      -moz-transform: scale(0.4);
-      -ms-transform: scale(0.4);
-      transform: scale(0.4);
-      opacity: 0.4; 
-      /* -webkit-animation: movingclouds 60s linear infinite; */
-      /* -moz-animation: movingclouds 10s linear infinite; */
-      -o-animation: movingclouds 10s linear infinite;
-    z-index: -5;
-  }
-  
-  @keyframes movingclouds {
-    0% {margin-left: 100%;}
-    100% {margin-left: -150%;}
-  }
-  @-webkit-keyframes movingclouds {
-    0% {margin-left: 100%;}
-    100% {margin-left: -150%;}
-  }
-  @-moz-keyframes movingclouds {
-    0% {margin-left: 100%;}
-    100% {margin-left: -150%;}
-  }
+
 /* header animation and style */
 #sitename{
     font-family: 'Lobster';
@@ -129,7 +20,7 @@ html {
   }
   
   .text-block, #img {
-    z-index: 105;
+    z-index: 100;
     position: absolute;
     top: 1%;
     left: 26%;
@@ -143,6 +34,7 @@ html {
   }
   
   .text-block {
+    z-index: 100;
     top: 12%;
     left: 31%;
   }
@@ -161,7 +53,6 @@ html {
     0% { transform: rotate(-1.5deg) }
     100% { transform: rotate(1.5deg) }
   }
-
 
   /* Navbar on main page */
  #nav-bar{
@@ -196,9 +87,6 @@ html {
 
  /* main page content under navbar */
  #main-body{
-  /* border: 0; */
-  /* padding:0px; */
-  /* margin-top: 50px; */
   background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
   height: 500px; 
 }
@@ -224,8 +112,14 @@ html {
   font-family: 'Lobster';
 }
 
+#dino{
+  opacity: 0.87;
+  position: absolute;
+  height: 300px;
+  right: 25px;
+  bottom: -35%;
+}
  /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
-
  #nav-admin h3{
   font-family: 'Lobster';
   font-size: 26px;
