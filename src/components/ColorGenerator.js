@@ -1,11 +1,14 @@
 import React from 'react';
 
-const ColorGenerator = () => {
-    return ( 
-        <div>
-            <h1>All of the pretty colors</h1>
-        </div>
-     );
+class ColorGenerator extends React.Component {
+
+    render() { 
+        return ( 
+            <div>
+                <p>color generator</p>
+            </div>
+         );
+    }
 }
  
 export default ColorGenerator;
