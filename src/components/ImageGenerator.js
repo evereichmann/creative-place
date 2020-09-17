@@ -1,4 +1,5 @@
 import React from 'react';
+import AdminNav from './AdminNav'
 
 class ImageGenerator extends React.Component {
     constructor(props){
@@ -29,6 +30,9 @@ class ImageGenerator extends React.Component {
     render() {
         return ( 
             <div>
+                <div id="navigation">
+                    <AdminNav />
+                </div>
                 <button onClick={this.handleClick}>Generate</button>
                 {/* <h1>{this.state.clicked && this.state.selectedImage.img_url}</h1> */}
                 <img height="200px" width="200px" src={this.state.clicked && this.state.selectedImage.img_url} />

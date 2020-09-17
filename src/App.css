@@ -63,16 +63,16 @@ html {
     font-family: 'Lobster';
     font-size: 26px;
     border-radius: 15px;
-    color: 	hsl(30, 100%, 20%);
-    border: solid hsl(30, 100%, 20%) 2px;
+    color: 	 hsl(30, 82%, 20%);
+    border: solid hsl(30, 82%, 20%) 2px;
     padding: 10px;
     margin-right: 40px;
     display: inline;
  }
 
  #nav-bar h3:hover { 
-   background-color: hsl(30, 100%, 20%);
-   color:	hsla(23, 47%, 37%, 1); 
+   background-color: hsl(30, 82%, 20%);
+   color:	rgb(149, 93, 59); 
   }
 
  #nav-container{
@@ -101,23 +101,61 @@ html {
 }
 
 #rock{
+  /* opacity: 0.7; */
   z-index: 1;
   position: absolute;
 }
 
 #rock-text{
+  color: rgb(221, 194, 158);
   z-index: 2;
   padding: 30px;
   position: absolute;
   font-family: 'Lobster';
 }
 
+#rock-two{
+  /* opacity: 0.7; */
+  z-index: 1;
+  position: absolute;
+  margin-left: 19%;
+  margin-top: 7%;
+  transform: rotate(50deg);
+}
+
+#rock-text-two{
+  color: rgb(223, 223, 223);
+  z-index: 2;
+  padding: 30px;
+  position: absolute;
+  font-family: 'Lobster';
+  margin-left: 21%;
+  margin-top: 12%;
+}
+
+#rock-three{
+  z-index: 1;
+  position: absolute;
+  margin-left: 50%;
+
+}
+
+#rock-text-three{
+  z-index: 2;
+  color: rgba(234, 236, 238, 0.959);
+  padding: 30px;
+  position: absolute;
+  font-family: 'Lobster';
+  margin-left: 50%;
+  margin-top: 3%;
+}
+
 #dino{
-  opacity: 0.87;
+  opacity: 0.7;
   position: absolute;
   height: 300px;
-  right: 60px;
-  bottom: -35%;
+  right: 3%;
+  bottom: -12%;
   transform: rotate(40deg);
 }
  /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
