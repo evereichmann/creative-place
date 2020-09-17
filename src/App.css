@@ -101,22 +101,59 @@ html {
 }
 
 #rock{
+  /* opacity: 0.7; */
   z-index: 1;
   position: absolute;
 }
 
 #rock-text{
+  color: rgb(221, 194, 158);
   z-index: 2;
   padding: 30px;
   position: absolute;
   font-family: 'Lobster';
 }
 
+#rock-two{
+  /* opacity: 0.7; */
+  z-index: 1;
+  position: absolute;
+  margin-left: 150px;
+  margin-top: 135px;
+}
+
+#rock-text-two{
+  color: rgb(223, 223, 223);
+  z-index: 2;
+  padding: 30px;
+  position: absolute;
+  font-family: 'Lobster';
+  margin-left: 185px;
+  margin-top: 265px;
+}
+
+#rock-three{
+  z-index: 1;
+  position: absolute;
+  margin-left: 500px;
+  margin-top: -45px;
+}
+
+#rock-text-three{
+  z-index: 2;
+  color: rgba(234, 236, 238, 0.959);
+  padding: 30px;
+  position: absolute;
+  font-family: 'Lobster';
+  margin-left: 500px;
+  margin-top: -10px;
+}
+
 #dino{
-  opacity: 0.87;
+  opacity: 0.7;
   position: absolute;
   height: 300px;
-  right: 60px;
+  right: 65px;
   bottom: -35%;
   transform: rotate(40deg);
 }
