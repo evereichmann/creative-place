@@ -97,7 +97,7 @@ html {
 }
 
 #main-subcontent{
-  padding-top: 150px;
+  padding-top: 90px;
 }
 
 #rock{
@@ -116,8 +116,9 @@ html {
   opacity: 0.87;
   position: absolute;
   height: 300px;
-  right: 25px;
+  right: 60px;
   bottom: -35%;
+  transform: rotate(40deg);
 }
  /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
  #nav-admin h3{
