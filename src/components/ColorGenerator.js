@@ -21,29 +21,21 @@ class ColorGenerator extends React.Component {
     }
 
     handleClick = () => {
-        if(this.state.genColor == 1){
-            let colorOne = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
-            this.setState({
-                clicked: true, 
-                selectedColor: [ colorOne ]
-                  })
-        }else if(this.state.genColor == 2){
-            let colorOne = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
-            let colorTwo = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
+        let colorOne = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
+        let colorTwo = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
+        let colorThree = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
+         
+        if(this.state.genColor == 2){
             this.setState({
                 clicked: true, 
                 selectedColor: [ colorOne, colorTwo ]
                   })
         }else if(this.state.genColor == 3){
-            let colorOne = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
-            let colorTwo = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
-            let colorThree = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
             this.setState({
                 clicked: true, 
                 selectedColor: [ colorOne, colorTwo, colorThree ]
                   })
         }else{
-            let colorOne = this.state.colors[Math.floor(Math.random() * this.state.colors.length)]
             this.setState({
                 clicked: true, 
                 selectedColor: [ colorOne ]
@@ -74,7 +66,6 @@ class ColorGenerator extends React.Component {
                 <div id="navigation">
                     <AdminNav />
                 </div>
-                <p>color generator</p>
                 <select value={this.state.value} onChange={this.handleChange}>
                     <option value="">How many colors</option>
                     <option value="1">1</option>
