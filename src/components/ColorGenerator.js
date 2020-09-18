@@ -10,7 +10,8 @@ class ColorGenerator extends React.Component {
             colors: [],
             selectedColor: [],
             clicked: false,
-            genColor: ''  
+            genColor: '',
+            error: ''  
         }
     }
 
@@ -29,16 +30,19 @@ class ColorGenerator extends React.Component {
          
         if(this.state.genColor == 2){
             this.setState({
+                error: null,
                 clicked: true, 
                 selectedColor: [ colorOne, colorTwo ]
                   })
         }else if(this.state.genColor == 3){
             this.setState({
+                error: null,
                 clicked: true, 
                 selectedColor: [ colorOne, colorTwo, colorThree ]
                   })
         }else{
             this.setState({
+                error: null,
                 clicked: true, 
                 selectedColor: [ colorOne ]
                   })
@@ -48,6 +52,47 @@ class ColorGenerator extends React.Component {
       handleChange = (event) => {
           this.setState({ genColor: event.target.value });
       }
+
+    handleSave = () => {
+        if(this.props.auth){
+            console.log("save")
+            console.log(this.state)
+        }else{
+            this.setState({ error: "finish this drawing and create an account to save" });
+            console.log('error')
+        }
+    } 
+
+    // handleSave = () => {
+    //     if(this.props.auth){
+    //         if(this.state.selectedImage !== null){
+    //             const userImage = {
+    //                 user_id: this.props.auth.id,
+    //                 image_id: this.state.selectedImage.id
+    //             }
+    //             const reqObj = {
+    //                 method: "POST", 
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(userImage)
+    //             }
+    //             fetch('http://localhost:3001/user_images', reqObj)
+    //                 .then(resp => resp.json())
+    //                 .then(data => {
+    //                     this.setState({ error: "saved successfully" });
+    //                 })
+    //         }else{
+    //             this.setState({ error: "please generate image" })
+    //         }
+    //     }else{
+    //         this.setState({ error: "finish this drawing and create an account to save image" });
+    //     }
+    // } 
+
+
+
+
 
     render() { 
         let colorarr = this.state.selectedColor.map(c => {
@@ -74,8 +119,12 @@ class ColorGenerator extends React.Component {
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                <button onClick={this.handleClick}>Generate</button>
                 {colorarr.length ? colorarr : null}
+                <button onClick={this.handleClick}>Generate</button>
+                <button onClick={this.handleSave}>Save</button>
+                <div>
+                { this.state.error ? <h2>{ this.state.error }</h2> : null }
+                </div>
             </div>
          );
     }

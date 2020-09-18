@@ -9,7 +9,8 @@ class IdeaGenerator extends React.Component {
         this.state = { 
             ideas: [],
             selectedNote: null,
-            clicked: false
+            clicked: false,
+            error: ''
          }
     }
 
@@ -23,11 +24,22 @@ class IdeaGenerator extends React.Component {
 
      handleClick = () => {
         this.setState({
+          error: null,
           clicked: true, 
           selectedNote: this.state.ideas[Math.floor(Math.random() * 
             this.state.ideas.length)]
         })
       }
+
+      handleSave = () => {
+        if(this.props.auth){
+            console.log("save")
+            console.log(this.state)
+        }else{
+            this.setState({ error: "write this one down and create an account to save future ideas" });
+            console.log('error')
+        }
+    }  
 
     render() { 
         return ( 
@@ -39,8 +51,10 @@ class IdeaGenerator extends React.Component {
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
                 <div id="idea-body">
-                    <button onClick={this.handleClick}>Generate</button>
+                { this.state.error ? <h2>{ this.state.error }</h2> : null }
                     <h1>{this.state.clicked && this.state.selectedNote.saying}</h1>  
+                    <button onClick={this.handleClick}>Generate</button>
+                    <button onClick={this.handleSave}>Save</button>
                 </div>
             </div>
          );
