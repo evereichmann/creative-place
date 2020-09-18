@@ -1,6 +1,7 @@
 import React from 'react';
-import AdminNav from './AdminNav'
-
+import { connect } from 'react-redux'
+import LoginNav from './LoginNav'
+import LogoutNav from './LogoutNav'
 
 class IdeaGenerator extends React.Component {
     constructor(props){
@@ -35,7 +36,7 @@ class IdeaGenerator extends React.Component {
                     <img src="https://i.ibb.co/XZ25pnm/Screen-Shot-2020-09-16-at-4-58-18-PM.png"/>
                 </div>
                 <div id="navigation">
-                    <AdminNav />
+                { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
                 <div id="idea-body">
                     <button onClick={this.handleClick}>Generate</button>
@@ -45,5 +46,11 @@ class IdeaGenerator extends React.Component {
          );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
   
-export default IdeaGenerator;
+export default connect(mapStateToProps, null)(IdeaGenerator);

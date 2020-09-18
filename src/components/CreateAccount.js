@@ -1,13 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
+import { loginSuccess } from '../actions/auth'
+import { connect } from 'react-redux'
 
-function CreateAccount() {
+function CreateAccount(props) {
+    const [error, setError] = useState(null)
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const onSubmit = data => {
+        console.log(data)
+        const reqObj = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({'user': data })
+        }
+      
+        fetch('http://localhost:3001/users', reqObj)
+        .then(resp => resp.json())
+        .then(data => {
+          if (data.error) {
+              setError(data.error)
+          }else if (data.username == "has already been taken"){
+            setError("sorry about this but that username has taken already")
+          } 
+          else {
+            props.loginSuccess(data)
+            props.history.push('/')
+          }
+        })
+      }
 
     return ( 
         <div id="main-body">
         <div id="form-content">  
+        { error ? <h3>{ error }</h3> : null }
         <form onSubmit={handleSubmit(onSubmit)}>
             <input 
                 type="text" 
@@ -50,4 +78,8 @@ function CreateAccount() {
      );
 }
  
-export default CreateAccount;
+const mapDispatchToProps = {
+    loginSuccess
+  }
+  
+  export default connect(null, mapDispatchToProps)(CreateAccount)

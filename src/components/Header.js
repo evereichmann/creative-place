@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import LogoutNav from './LogoutNav'
+import LoginNav from './LoginNav'
 
-const Header = () => {
+const Header = (props) => {
     return ( 
         <div>
             <div class="container">
@@ -11,16 +14,24 @@ const Header = () => {
                     <img id="background" src="https://i.ibb.co/0DHnd3n/Screen-Shot-2020-09-15-at-12-47-31-PM.png" />
                     <div id="nav-container">
                         <div id="nav-bar">
-                            <h3>Hello Admin</h3> 
+                            
+                            { props.auth ? <LoginNav /> : <LogoutNav />}
+                            {/* <h3>Hello Admin</h3> 
                             <h3>Logout</h3>   
                             <h3>Library</h3>
                             <h3>Skill Drills</h3>    
-                            <h3>Approve Suggestion</h3>    
+                            <h3>Approve Suggestion</h3>     */}
                         </div>
                     </div>      
             </div>
         </div>
      );
 }
+
+const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
+    }
+  }
  
-export default Header;
+export default connect ( mapStateToProps ,null) (Header);

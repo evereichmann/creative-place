@@ -11,6 +11,9 @@ import ColorGenerator from './components/ColorGenerator'
 import UserProfile from './components/UserProfile'
 import Artbox from './components/Artbox'
 import Header from './components/Header'
+import Library from './components/Library'
+import SkillDrills from './components/SkillDrills'
+import ApproveSuggestions from './components/ApproveSuggestions'
 
 class App extends React.Component {
 
@@ -21,6 +24,9 @@ class App extends React.Component {
         <Route exact path="/ideagenerator" component={IdeaGenerator}/>
         <Route exact path="/imagegenerator" component={ImageGenerator}/>
         <Route exact path="/colorgenerator" component={ColorGenerator}/>
+        <Route exact path="/library" component={Library}/>
+        <Route exact path="/skilldrills" component={SkillDrills}/>
+        <Route exact path="/approveSuggestions" component={ApproveSuggestions}/>
         {/* this may change I think I just will render profile from redux state */}
         {/* <Route exact path="/user/:userId" component={}/> */}
         <Route exact path="/users/1" component={UserProfile}/>

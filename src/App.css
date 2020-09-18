@@ -56,21 +56,21 @@ html {
 
   /* Navbar on main page */
  #nav-bar{
-    padding: 50px;
+    padding: 20px;
   } 
   
-  #nav-bar h3 {
+  #nav-bar p{
     font-family: 'Lobster';
     font-size: 26px;
     border-radius: 15px;
     color: 	 hsl(30, 82%, 20%);
     border: solid hsl(30, 82%, 20%) 2px;
     padding: 10px;
-    margin-right: 40px;
+    margin-right: 10px;
     display: inline;
  }
 
- #nav-bar h3:hover { 
+ #nav-bar p:hover { 
    background-color: hsl(30, 82%, 20%);
    color:	rgb(149, 93, 59); 
   }
@@ -82,11 +82,13 @@ html {
     margin-top: -24px;
     vertical-align: baseline;
     background-image: url("https://i.ibb.co/bWvG8qd/Screen-Shot-2020-09-16-at-3-17-42-PM.png");
-    height: 80px;
+    height: 30px;
+    z-index: 1px;
  }
 
  /* main page content under navbar */
  #main-body{
+   z-index: -5px;
   background-image: url("https://i.ibb.co/WFCr9Q1/Screen-Shot-2020-09-16-at-3-32-37-PM.png");
   height: 540px; 
 }
@@ -159,7 +161,7 @@ html {
   transform: rotate(40deg);
 }
  /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
- #nav-admin h3{
+ /* #nav-admin h3{
   font-family: 'Lobster';
   font-size: 26px;
   border-radius: 15px;
@@ -173,7 +175,7 @@ html {
  #nav-admin h3:hover { 
   background-color: red;
   color:	white; 
- }
+ } */
 
 /* form styling */
  #form-content{

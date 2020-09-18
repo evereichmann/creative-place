@@ -1,5 +1,7 @@
 import React from 'react';
-import AdminNav from './AdminNav'
+import { connect } from 'react-redux'
+import LoginNav from './LoginNav'
+import LogoutNav from './LogoutNav'
 
 class ColorGenerator extends React.Component {
     constructor(props){
@@ -64,7 +66,7 @@ class ColorGenerator extends React.Component {
         return ( 
             <div>
                 <div id="navigation">
-                    <AdminNav />
+                { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
                 <select value={this.state.value} onChange={this.handleChange}>
                     <option value="">How many colors</option>
@@ -79,4 +81,10 @@ class ColorGenerator extends React.Component {
     }
 }
  
-export default ColorGenerator;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, null)(ColorGenerator);

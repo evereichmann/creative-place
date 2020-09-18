@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 const Artbox = () => {
     return ( 
@@ -7,5 +8,10 @@ const Artbox = () => {
         </div>
      );
 }
- 
-export default Artbox;
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+export default connect(mapStateToProps, null) (Artbox);

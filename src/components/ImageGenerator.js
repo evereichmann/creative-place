@@ -1,5 +1,7 @@
 import React from 'react';
-import AdminNav from './AdminNav'
+import { connect } from 'react-redux'
+import LoginNav from './LoginNav'
+import LogoutNav from './LogoutNav'
 
 class ImageGenerator extends React.Component {
     constructor(props){
@@ -31,14 +33,19 @@ class ImageGenerator extends React.Component {
         return ( 
             <div>
                 <div id="navigation">
-                    <AdminNav />
+                { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
                 <button onClick={this.handleClick}>Generate</button>
-                {/* <h1>{this.state.clicked && this.state.selectedImage.img_url}</h1> */}
                 <img height="400px" width="400px" src={this.state.clicked && this.state.selectedImage.img_url} />
             </div>
          );
     }
 }
+
+const mapStateToProps = (state) => {
+    return{
+        auth: state.auth
+    }
+}
  
-export default ImageGenerator;
+export default connect(mapStateToProps, null)(ImageGenerator);
