@@ -9,7 +9,7 @@ class LoginNav extends React.Component {
   renderLoginNav = () => {
     return (
       <div>
-            <p>Hello User</p> 
+            <Link to="/profile"><p>Hello User</p></Link> 
             <Link to="/" onClick={this.props.logoutSuccess}><p>Logout</p></Link>
             <Link to="/"><p>Main</p></Link>  
             <Link to="/library"><p>Library</p></Link>

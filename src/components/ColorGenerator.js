@@ -55,8 +55,69 @@ class ColorGenerator extends React.Component {
 
     handleSave = () => {
         if(this.props.auth){
-            console.log("save")
-            console.log(this.state)
+            if(this.state.selectedColor.length === 1){
+                const palette = {
+                    user_id: this.props.auth.id,
+                    color_one_id: this.state.selectedColor[0].id,
+                    color_two_id: null,
+                    color_three_id: null
+                }
+                const reqObj = {
+                    method: "POST", 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(palette)
+                }
+                fetch('http://localhost:3001/palletes', reqObj)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data)
+                        this.setState({ error: "saved successfully" })
+                    })
+            }else if(this.state.selectedColor.length === 2){
+                const palette = {
+                    user_id: this.props.auth.id,
+                    color_one_id: this.state.selectedColor[0].id,
+                    color_two_id: this.state.selectedColor[1].id,
+                    color_three_id: null
+                }
+                const reqObj = {
+                    method: "POST", 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(palette)
+                }
+                fetch('http://localhost:3001/palletes', reqObj)
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data)
+                    this.setState({ error: "saved successfully" })
+                })
+            }else if(this.state.selectedColor.length === 3){
+                const palette = {
+                    user_id: this.props.auth.id,
+                    color_one_id: this.state.selectedColor[0].id,
+                    color_two_id: this.state.selectedColor[1].id,
+                    color_three_id: this.state.selectedColor[2].id
+                }
+                const reqObj = {
+                    method: "POST", 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(palette)
+                }
+                fetch('http://localhost:3001/palletes', reqObj)
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data)
+                    this.setState({ error: "saved successfully" })
+                })
+            }else{
+                this.setState({ error: "please generate a color pallete" });
+            }
         }else{
             this.setState({ error: "finish this drawing and create an account to save" });
             console.log('error')
@@ -91,9 +152,8 @@ class ColorGenerator extends React.Component {
                 {colorarr.length ? colorarr : null}
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
-                <div>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
-                </div>
+    
             </div>
          );
     }

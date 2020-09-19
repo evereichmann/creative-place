@@ -64,7 +64,7 @@ class ImageGenerator extends React.Component {
                 <div id="navigation">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
-                <img height="400px" width="400px" src={this.state.clicked && this.state.selectedImage.img_url} />
+                <img height="400px" width="400px" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
