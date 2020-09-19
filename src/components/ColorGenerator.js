@@ -63,37 +63,6 @@ class ColorGenerator extends React.Component {
         }
     } 
 
-    // handleSave = () => {
-    //     if(this.props.auth){
-    //         if(this.state.selectedImage !== null){
-    //             const userImage = {
-    //                 user_id: this.props.auth.id,
-    //                 image_id: this.state.selectedImage.id
-    //             }
-    //             const reqObj = {
-    //                 method: "POST", 
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(userImage)
-    //             }
-    //             fetch('http://localhost:3001/user_images', reqObj)
-    //                 .then(resp => resp.json())
-    //                 .then(data => {
-    //                     this.setState({ error: "saved successfully" });
-    //                 })
-    //         }else{
-    //             this.setState({ error: "please generate image" })
-    //         }
-    //     }else{
-    //         this.setState({ error: "finish this drawing and create an account to save image" });
-    //     }
-    // } 
-
-
-
-
-
     render() { 
         let colorarr = this.state.selectedColor.map(c => {
             return (<div>

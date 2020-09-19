@@ -48,7 +48,7 @@ class ImageGenerator extends React.Component {
                 fetch('http://localhost:3001/user_images', reqObj)
                     .then(resp => resp.json())
                     .then(data => {
-                        this.setState({ error: "saved successfully" });
+                        this.setState({ error: "saved successfully" })
                     })
             }else{
                 this.setState({ error: "please generate image" })
