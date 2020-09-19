@@ -7,13 +7,13 @@ const Main = () => {
         <div id="main-body">
             <div id="main-content">
                <div id="main-subcontent">
-                    <Link to="/ideagenerator"><img id="rock" height="150" src="https://i.ibb.co/TBPc1tZ/Screen-Shot-2020-09-16-at-9-27-10-PM.png"/>
+                    <Link to="/ideagenerator"><img id="rock" height="150" src="https://i.ibb.co/TBPc1tZ/Screen-Shot-2020-09-16-at-9-27-10-PM.png" alt=""/>
                     <h1 id="rock-text">Idea Generator</h1></Link>
-                    <Link to="/imagegenerator"><img id="rock-two" height="250" src="https://i.ibb.co/zVG1nhy/Screen-Shot-2020-09-16-at-9-40-56-PM.png"/>
+                    <Link to="/imagegenerator"><img id="rock-two" height="250" src="https://i.ibb.co/zVG1nhy/Screen-Shot-2020-09-16-at-9-40-56-PM.png" alt=""/>
                     <h1 id="rock-text-two">Image Generator</h1></Link>
-                    <Link to="/colorgenerator"><img id="rock-three" height="200" src="https://i.ibb.co/wsXFFH8/Multicolorrock.png"/>
+                    <Link to="/colorgenerator"><img id="rock-three" height="200" src="https://i.ibb.co/wsXFFH8/Multicolorrock.png" alt=""/>
                     <h1 id="rock-text-three">Color Generator</h1></Link>
-                    <img id="dino" src="https://i.ibb.co/xXMjDBj/Screen-Shot-2020-09-16-at-9-45-40-PM.png"/>
+                    <img id="dino" src="https://i.ibb.co/xXMjDBj/Screen-Shot-2020-09-16-at-9-45-40-PM.png" alt=""/>
                 </div> 
             </div>
         </div>

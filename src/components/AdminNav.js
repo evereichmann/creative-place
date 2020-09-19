@@ -6,7 +6,7 @@ import { logoutSuccess } from '../actions/auth'
 const AdminNav = (props) => {
     return ( 
         <div id="nav-bar">
-            <p>Hello Admin</p> 
+            <Link to="/profile"><p>Hello Admin</p></Link> 
             <Link to="/" onClick={props.logoutSuccess}><p>Logout</p></Link>
             <Link to="/"><p>Main</p></Link>  
             <Link to="/library"><p>Library</p></Link>

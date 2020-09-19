@@ -8,7 +8,7 @@ class IdeaGenerator extends React.Component {
         super(props)
         this.state = { 
             ideas: [],
-            selectedNote: null,
+            selectedIdea: null,
             clicked: false,
             error: ''
          }
@@ -26,15 +26,33 @@ class IdeaGenerator extends React.Component {
         this.setState({
           error: null,
           clicked: true, 
-          selectedNote: this.state.ideas[Math.floor(Math.random() * 
+          selectedIdea: this.state.ideas[Math.floor(Math.random() * 
             this.state.ideas.length)]
         })
       }
 
       handleSave = () => {
         if(this.props.auth){
-            console.log("save")
-            console.log(this.state)
+            if(this.state.selectedIdea !== null){
+                const userIdea = {
+                    user_id: this.props.auth.id,
+                    idea_id: this.state.selectedIdea.id
+                }
+                const reqObj = {
+                    method: "POST", 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userIdea)
+                }
+                fetch('http://localhost:3001/user_ideas', reqObj)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        this.setState({ error: "saved successfully" })
+                    })
+            }else{
+                this.setState({ error: "please generate idea" })
+            }
         }else{
             this.setState({ error: "write this one down and create an account to save future ideas" });
             console.log('error')
@@ -51,10 +69,10 @@ class IdeaGenerator extends React.Component {
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
                 <div id="idea-body">
-                { this.state.error ? <h2>{ this.state.error }</h2> : null }
-                    <h1>{this.state.clicked && this.state.selectedNote.saying}</h1>  
+                    <h1>{this.state.clicked && this.state.selectedIdea.saying}</h1>  
                     <button onClick={this.handleClick}>Generate</button>
                     <button onClick={this.handleSave}>Save</button>
+                { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </div>
             </div>
          );
