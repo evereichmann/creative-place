@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
+import {likeColors} from '../actions/auth'
 
 class ColorGenerator extends React.Component {
     constructor(props){
@@ -39,13 +40,13 @@ class ColorGenerator extends React.Component {
                 error: null,
                 clicked: true, 
                 selectedColor: [ colorOne, colorTwo, colorThree ]
-                  })
+            })
         }else{
             this.setState({
                 error: null,
                 clicked: true, 
                 selectedColor: [ colorOne ]
-                  })
+            })
         }
       }
 
@@ -54,11 +55,13 @@ class ColorGenerator extends React.Component {
       }
 
     handleSave = () => {
+        // console.log(this.state.selectedColor[0].rgb_value)
         if(this.props.auth){
             if(this.state.selectedColor.length === 1){
                 const palette = {
                     user_id: this.props.auth.id,
                     color_one_id: this.state.selectedColor[0].id,
+                    color_one_rgb_value: this.state.selectedColor[0].rgb_value,
                     color_two_id: null,
                     color_three_id: null
                 }
@@ -72,15 +75,18 @@ class ColorGenerator extends React.Component {
                 fetch('http://localhost:3001/palletes', reqObj)
                     .then(resp => resp.json())
                     .then(data => {
-                        console.log(data)
+                        this.props.likeColors(data)
                         this.setState({ error: "saved successfully" })
                     })
             }else if(this.state.selectedColor.length === 2){
                 const palette = {
                     user_id: this.props.auth.id,
                     color_one_id: this.state.selectedColor[0].id,
+                    color_one_rgb_value: this.state.selectedColor[0].rgb_value,
                     color_two_id: this.state.selectedColor[1].id,
-                    color_three_id: null
+                    color_two_rgb_value: this.state.selectedColor[1].rgb_value,
+                    color_three_id: null,
+                    color_three_rgb_value: null
                 }
                 const reqObj = {
                     method: "POST", 
@@ -92,15 +98,18 @@ class ColorGenerator extends React.Component {
                 fetch('http://localhost:3001/palletes', reqObj)
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
+                    this.props.likeColors(data)
                     this.setState({ error: "saved successfully" })
                 })
             }else if(this.state.selectedColor.length === 3){
                 const palette = {
                     user_id: this.props.auth.id,
                     color_one_id: this.state.selectedColor[0].id,
+                    color_one_rgb_value: this.state.selectedColor[0].rgb_value,
                     color_two_id: this.state.selectedColor[1].id,
-                    color_three_id: this.state.selectedColor[2].id
+                    color_two_rgb_value: this.state.selectedColor[1].rgb_value,
+                    color_three_id: this.state.selectedColor[2].id,
+                    color_three_rgb_value: this.state.selectedColor[2].rgb_value
                 }
                 const reqObj = {
                     method: "POST", 
@@ -112,7 +121,7 @@ class ColorGenerator extends React.Component {
                 fetch('http://localhost:3001/palletes', reqObj)
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
+                    this.props.likeColors(data)
                     this.setState({ error: "saved successfully" })
                 })
             }else{
@@ -165,4 +174,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(ColorGenerator);
+const mapDispatchToProps = {
+    likeColors
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColorGenerator);

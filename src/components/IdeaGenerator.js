@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
+import { likeIdea } from '../actions/auth'
 
 class IdeaGenerator extends React.Component {
     constructor(props){
@@ -48,6 +49,7 @@ class IdeaGenerator extends React.Component {
                 fetch('http://localhost:3001/user_ideas', reqObj)
                     .then(resp => resp.json())
                     .then(data => {
+                        this.props.likeIdea(data)
                         this.setState({ error: "saved successfully" })
                     })
             }else{
@@ -84,5 +86,9 @@ const mapStateToProps = (state) => {
         auth: state.auth
     }
 }
+
+const mapDispatchtoProps = {
+    likeIdea
+}
   
-export default connect(mapStateToProps, null)(IdeaGenerator);
+export default connect(mapStateToProps, mapDispatchtoProps)(IdeaGenerator);

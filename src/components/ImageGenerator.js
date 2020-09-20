@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
+import {likeImage} from '../actions/auth'
 
 class ImageGenerator extends React.Component {
     constructor(props){
@@ -48,6 +49,10 @@ class ImageGenerator extends React.Component {
                 fetch('http://localhost:3001/user_images', reqObj)
                     .then(resp => resp.json())
                     .then(data => {
+                        this.props.likeImage({
+                            ...data, 
+                            img_url: this.state.selectedImage.img_url
+                        })
                         this.setState({ error: "saved successfully" })
                     })
             }else{
@@ -78,5 +83,9 @@ const mapStateToProps = (state) => {
         auth: state.auth
     }
 }
+
+const mapDispatchtoProps = {
+    likeImage
+}
  
-export default connect(mapStateToProps, null)(ImageGenerator);
+export default connect(mapStateToProps, mapDispatchtoProps)(ImageGenerator);
