@@ -34,7 +34,7 @@ class App extends React.Component {
           <Route exact path='/' component={Main}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path="/createaccount" component={CreateAccount}/>
-          <Route exact path='*' component={NoMatch}/> 
+          {/* <Route exact path='' component={NoMatch}/>  */}
         </Fragment>  
       </Switch>
     </div>
