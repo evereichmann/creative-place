@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
                              return <img height="100" width="100" src={image.img_url} alt=''/>
                          })}
                          { this.props.auth.palletes.map(pallete => {
-                             return (<div><h1>{pallete.id}</h1><h3>{pallete.color_one_rgb_value}</h3><h3>{pallete.color_two_rgb_value}</h3><h3>{pallete.color_three_rgb_value}</h3></div>)
+                             return (<div><h1>{pallete.id}</h1><h3 style={{color: `rgb(${pallete.color_one_rgb_value})`,}}>{pallete.color_one_rgb_value}</h3><h3 style={{color: `rgb(${pallete.color_two_rgb_value})`,}}>{pallete.color_two_rgb_value}</h3><h3 style={{color: `rgb(${pallete.color_three_rgb_value})`,}}>{pallete.color_three_rgb_value}</h3></div>)
                          })}
                     </div>
         </div>
