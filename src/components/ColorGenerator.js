@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
+import {likeColors} from '../actions/auth'
 
 class ColorGenerator extends React.Component {
     constructor(props){
@@ -74,7 +75,7 @@ class ColorGenerator extends React.Component {
                 fetch('http://localhost:3001/palletes', reqObj)
                     .then(resp => resp.json())
                     .then(data => {
-                        console.log(data)
+                        this.props.likeColors(data)
                         this.setState({ error: "saved successfully" })
                     })
             }else if(this.state.selectedColor.length === 2){
@@ -97,7 +98,7 @@ class ColorGenerator extends React.Component {
                 fetch('http://localhost:3001/palletes', reqObj)
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
+                    this.props.likeColors(data)
                     this.setState({ error: "saved successfully" })
                 })
             }else if(this.state.selectedColor.length === 3){
@@ -120,7 +121,7 @@ class ColorGenerator extends React.Component {
                 fetch('http://localhost:3001/palletes', reqObj)
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
+                    this.props.likeColors(data)
                     this.setState({ error: "saved successfully" })
                 })
             }else{
@@ -173,4 +174,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(ColorGenerator);
+const mapDispatchToProps = {
+    likeColors
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColorGenerator);

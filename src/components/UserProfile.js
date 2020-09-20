@@ -6,15 +6,6 @@ import LoginNav from './LoginNav'
 class UserProfile extends React.Component {
     state = {  }
 
-    componentDidMount() {
-        const userId = this.props.auth.id
-        fetch(`http://localhost:3001/users/${userId}`)
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data)
-            })    
-    }
-
     render() { 
         return ( 
             <div>
