@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import { likeIdea } from '../actions/auth'
+import {userIdeaUpdate} from '../actions/auth'
 
 class IdeaGenerator extends React.Component {
     constructor(props){
@@ -27,8 +28,7 @@ class IdeaGenerator extends React.Component {
         this.setState({
           error: null,
           clicked: true, 
-          selectedIdea: this.state.ideas[Math.floor(Math.random() * 
-            this.state.ideas.length)]
+          selectedIdea: this.state.ideas[Math.floor(Math.random() * this.state.ideas.length)]
         })
       }
 
@@ -49,7 +49,11 @@ class IdeaGenerator extends React.Component {
                 fetch('http://localhost:3001/user_ideas', reqObj)
                     .then(resp => resp.json())
                     .then(data => {
-                        this.props.likeIdea(data)
+                        this.props.likeIdea({
+                            ...data,
+                            saying: this.state.selectedIdea.saying
+                        })
+                        this.props.userIdeaUpdate(data)
                         this.setState({ error: "saved successfully" })
                     })
             }else{
@@ -65,7 +69,7 @@ class IdeaGenerator extends React.Component {
         return ( 
             <div id="main-container">
                 <div id="header">
-                    <img src="https://i.ibb.co/XZ25pnm/Screen-Shot-2020-09-16-at-4-58-18-PM.png"/>
+                    <img src="https://i.ibb.co/XZ25pnm/Screen-Shot-2020-09-16-at-4-58-18-PM.png" alt=""/>
                 </div>
                 <div id="navigation">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
@@ -88,7 +92,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchtoProps = {
-    likeIdea
+    likeIdea,
+    userIdeaUpdate
 }
   
 export default connect(mapStateToProps, mapDispatchtoProps)(IdeaGenerator);

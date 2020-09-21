@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import {likeImage} from '../actions/auth'
+import { likeUserImage } from '../actions/auth'
 
 class ImageGenerator extends React.Component {
     constructor(props){
@@ -27,8 +28,7 @@ class ImageGenerator extends React.Component {
         this.setState({
           error: null,  
           clicked: true, 
-          selectedImage: this.state.images[Math.floor(Math.random() * 
-            this.state.images.length)]
+          selectedImage: this.state.images[Math.floor(Math.random() * this.state.images.length)]
         })
       }
 
@@ -53,6 +53,7 @@ class ImageGenerator extends React.Component {
                             ...data, 
                             img_url: this.state.selectedImage.img_url
                         })
+                        this.props.likeUserImage(data)
                         this.setState({ error: "saved successfully" })
                     })
             }else{
@@ -85,7 +86,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchtoProps = {
-    likeImage
+    likeImage,
+    likeUserImage
 }
  
 export default connect(mapStateToProps, mapDispatchtoProps)(ImageGenerator);

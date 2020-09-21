@@ -1,16 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import AdminNav from './AdminNav'
+import LoginNav from './LoginNav'
+import LogoutNav from './LogoutNav'
 
-const ApproveSuggestions = (props) => {
-    return ( 
-        <div>
+
+class ApproveSuggestions extends React.Component {
+
+    componentDidMount() {
+        if(!this.props.auth){
+            this.props.history.push('/')
+        }else if(this.props.auth.admin === false){
+            this.props.history.push('/')
+        }
+    }
+
+    render() { 
+        return ( 
+            <div>
             <div id="navigation">
-                <AdminNav />
+            { this.props.auth ? <LoginNav /> : <LogoutNav /> }
             </div>
             <p>approved this or that </p>
         </div>
-     );
+         );
+    }
 }
  
 const mapStateToProps = (state) => {
@@ -18,6 +31,5 @@ const mapStateToProps = (state) => {
         auth: state.auth
     }
 }
-
 
 export default connect(mapStateToProps, null)(ApproveSuggestions);
