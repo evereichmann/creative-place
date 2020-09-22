@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/Basic.css'
+import { connect } from 'react-redux'
 import { Container, Grid, Image } from 'semantic-ui-react'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -12,8 +13,8 @@ const Challenges = (props) => {
             <Grid.Row></Grid.Row>   
             <Grid.Row>
             <div id="nav-bar-basic">
-                { props.auth ? <LoginNav /> : <LogoutNav /> }
-            </div>
+                    { props.auth ? <LoginNav /> : <LogoutNav /> }
+                </div>
             </Grid.Row> 
             <Grid.Row columns={3}>
                 <Grid.Column>
@@ -72,4 +73,11 @@ const Challenges = (props) => {
      );
 }
  
-export default Challenges;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Challenges);
