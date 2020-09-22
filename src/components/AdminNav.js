@@ -12,6 +12,7 @@ class AdminNav extends React.Component {
             <Link to="/"><p>Main</p></Link>  
             <Link to="/library"><p>Library</p></Link>
             <Link to="/skilldrills"><p>Skill Drills</p></Link> 
+            <Link to='challenges'><p>Challenges</p></Link>
             <Link to="approvesuggestions"><p>Approve Suggestion</p></Link>        
         </div>
           );

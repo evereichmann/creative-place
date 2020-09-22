@@ -15,6 +15,7 @@ import Header from './components/Header'
 import Library from './components/Library'
 import SkillDrills from './components/SkillDrills'
 import ApproveSuggestions from './components/ApproveSuggestions'
+import Challenges from './components/Challenges'
 
 class App extends React.Component {
   render(){
@@ -29,6 +30,7 @@ class App extends React.Component {
         <Route exact path="/approveSuggestions" component={ApproveSuggestions}/>
         <Route exact path="/profile" component={UserProfile}/>
         <Route exact path="/profile/artbox" component={Artbox}/>
+        <Route exact path="/challenges" component={Challenges}/>
         <Fragment>
           <Header />
           <Route exact path='/' component={Main}/>

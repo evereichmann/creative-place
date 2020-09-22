@@ -10,6 +10,7 @@ const LogoutNav = () => {
             <Link to="/"><p>Main</p></Link>  
             <Link to="/library"><p>Library</p></Link>
             <Link to="/skilldrills"><p>Skill Drills</p></Link>  
+            <Link to='challenges'><p>Challenges</p></Link>
         </div>
      );
 }
