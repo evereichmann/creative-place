@@ -27,6 +27,14 @@ function CreateAccount(props) {
           } 
           else {
             props.loginSuccess(data)
+            const Obj = {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ user_id: data.id })
+            }
+            fetch('http://localhost:3001/artboxes', Obj)
             props.history.push('/')
           }
         })

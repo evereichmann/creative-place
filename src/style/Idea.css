@@ -6,10 +6,10 @@
   #nav-bar-idea p{
     z-index: 100;
     font-family: 'Lobster';
-    font-size: 26px;
+    font-size: 20px;
     border-radius: 15px;
-    color: 	 red;
-    border: solid red 2px;
+    color: 	 white;
+    border: solid white 2px;
     padding: 10px;
     margin-right: 10px;
     display: inline;
@@ -17,6 +17,16 @@
 
  #nav-bar-idea p:hover { 
    z-index: 100;
-   background-color: red;
-   color:	white; 
+   background-color: white;
+   color:	black; 
+  }
+
+  #main-container-idea{
+    height: 600px;
+    width: 1000px;
+    background-image: url('https://www.advancedsciencenews.com/wp-content/uploads/2020/06/graham-holtshausen-fUnfEz3VLv4-unsplash.jpg');
+  }
+
+  #saying-area{
+    background-color: white;
   }

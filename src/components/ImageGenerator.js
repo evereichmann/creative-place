@@ -1,4 +1,6 @@
 import React from 'react';
+import { Container, Grid } from 'semantic-ui-react'
+import '../style/Image.css'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -66,14 +68,23 @@ class ImageGenerator extends React.Component {
 
     render() {
         return ( 
-            <div>
-                <div id="navigation">
+            <div id="main-container-image">
+                <Container>
+                    <Grid>
+                        <Grid.Row></Grid.Row>
+                        <Grid.Row>
+                <div id="nav-bar-image">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
+                </Grid.Row>
+                <Grid.Row>
                 <img height="400px" width="400px" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
+                </Grid.Row>
+                </Grid>
+                </Container>
             </div>
          );
     }

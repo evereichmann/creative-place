@@ -13,6 +13,8 @@
     padding: 10px;
     margin-right: 10px;
     display: inline;
+    background-color: tan;
+    opacity: 0.8;
  }
 
  #nav-bar-main p:hover { 

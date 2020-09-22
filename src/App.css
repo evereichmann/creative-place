@@ -128,28 +128,12 @@ html {
   bottom: -320%;
   transform: rotate(40deg);
 }
- /* ADMIN NAVBAR USED IN NONHEADER ROUTES */
- /* #nav-admin h3{
-  font-family: 'Lobster';
-  font-size: 26px;
-  border-radius: 15px;
-  color: 	red;
-  border: solid red 2px;
-  padding: 10px;
-  margin-right: 40px;
-  display: inline;
- }
-
- #nav-admin h3:hover { 
-  background-color: red;
-  color:	white; 
- } */
 
 /* form styling */
  #form-content{
     margin-left: 20%;
     margin-right: 20%;
-    padding: 15%;
+    padding-top: 15%;
  }
 
 
