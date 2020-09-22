@@ -20,17 +20,17 @@ const Challenges = (props) => {
                 <Grid.Column>
                     <h3>100 Heads</h3>
                     <Image src='https://i.ytimg.com/vi/0A_kQsxeeTE/maxresdefault.jpg' />
-                    <p> 100 heads challenge was created by the artist Ahmed Aldoori and it basically consists in drawing 100 heads in 10 days. <a href="https://www.pinterest.com/aaldoori/portrait/" target="_blank">Here is the link to the pinterest page.</a></p>
+                    <p> 100 heads challenge was created by the artist Ahmed Aldoori and it basically consists in drawing 100 heads in 10 days. <a href="https://www.pinterest.com/aaldoori/portrait/" target="_blank" rel="noopener noreferrer">Here is the link to the pinterest page.</a></p>
                 </Grid.Column>
                 <Grid.Column>
                     <h3>Magical March</h3>
-                    <Image height="300px" src='https://i.pinimg.com/originals/1f/82/a3/1f82a3acdd0745423d59ef376908aaa5.jpg' />
-                    <p>MagicalMarch was popularized <a href="https://www.instagram.com/p/BfHHisql-H_/?utm_source=ig_web_button_share_sheet" target="_blank">by Mariana Real</a>. The first version of this challenge was <a href="https://www.deviantart.com/envyskort" target="_blank">Ruby's 31 Day Magical Girl Challenge</a> back in 2015. This challenge is drawing anything magical. People mostly do magical female characters.</p>
+                    <Image src='https://lh3.googleusercontent.com/proxy/IUYUS00wlsTDOWcDhqxDnYq_tCnozbl5tSi3cpCs6Lr_4N0YClMWxQCpfkcZbZOPAeL28dwUUa5bj9nE8-rHMoBvTDDyfRZzS1GteSykpVwlEnKELS9w' />
+                    <p>MagicalMarch was popularized <a href="https://www.instagram.com/p/BfHHisql-H_/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">by Mariana Real</a>. The first version of this challenge was <a href="https://www.deviantart.com/envyskort" target="_blank" rel="noopener noreferrer">Ruby's 31 Day Magical Girl Challenge</a> back in 2015. This challenge is drawing anything magical. People mostly do magical female characters.</p>
                 </Grid.Column>
                 <Grid.Column>
                     <h3>Mermay</h3>
                     <Image src='https://cdnb.artstation.com/p/assets/images/images/018/417/287/large/mike-gamble-mermay-mermaids-2019-x.jpg?1559285988' alt=''/>
-                    <p><a href="https://www.mermay.com/" target="_blank">Mermay</a> was started by Tom Bancroft in 2016. This challange is drawing mermaids everyday in the month of May. There is a propmt but you do not have to follow strickly.</p>
+                    <p><a href="https://www.mermay.com/" target="_blank" rel="noopener noreferrer">Mermay</a> was started by Tom Bancroft in 2016. This challange is drawing mermaids everyday in the month of May. There is a propmt but you do not have to follow strickly.</p>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>
@@ -54,12 +54,12 @@ const Challenges = (props) => {
                 <Grid.Column>
                     <h3>Character Design</h3>
                     <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9t4b7zn7C35LXCrKIg99HjgKVG6jI4WXBRw&usqp=CAU' />
-                    <p><i>'The Character Design Challenge is an international community of artists who share common goals: improve and learn from each other, promote their work online and having fun designing characters together.'</i><a href="https://characterdesignreferences.com/about-the-challenge#:~:text=The%20Character%20Design%20Challenge%20(or,having%20fun%20designing%20characters%20together." target="_blank">There website here.</a></p>
+                    <p><i>'The Character Design Challenge is an international community of artists who share common goals: improve and learn from each other, promote their work online and having fun designing characters together.'</i><a href="https://characterdesignreferences.com/about-the-challenge#:~:text=The%20Character%20Design%20Challenge%20(or,having%20fun%20designing%20characters%20together." target="_blank" rel="noopener noreferrer">There website here.</a></p>
                 </Grid.Column>
                 <Grid.Column>
                     <h3>Inktober</h3>
                     <Image src='https://images.squarespace-cdn.com/content/v1/58bdb4b49f7456dff81be981/1517010286331-69LB58X9VZ6F0VWD25TE/ke17ZwdGBToddI8pDm48kGJGlcyy5UyZ_78pIv6a2qFZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVGvebToXm6HicHX6FFLjxJm0My453GRhe6B32SlpdF9oWQ6l2WM7tn7mqHTODzkmeM/logo_1.png' alt=''/>
-                    <p><i>'Jake Parker created Inktober in 2009 as a challenge to improve his inking skills and develop positive drawing habits. It has since grown into a worldwide endeavor with thousands of artists taking on the challenge every year.'</i> <a href="https://inktober.com/" target="_blank"> Website here</a></p>
+                    <p><i>'Jake Parker created Inktober in 2009 as a challenge to improve his inking skills and develop positive drawing habits. It has since grown into a worldwide endeavor with thousands of artists taking on the challenge every year.'</i> <a href="https://inktober.com/" target="_blank" rel="noopener noreferrer"> Website here</a></p>
                 </Grid.Column>
                 <Grid.Column>
                     <h3>Huevember</h3>

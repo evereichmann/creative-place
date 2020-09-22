@@ -80,3 +80,17 @@ export const loginSuccess = (user) => {
       id: id
     }
   }
+
+  export const addItem = (item) => {
+    return{
+      type: 'ADD_ITEM',
+      item: item
+    }
+  }
+
+  export const deleteItem = (id) => {
+    return{
+      type: 'DELETE_ITEM',
+      id: id
+    }
+  }

@@ -1,4 +1,4 @@
-. #nav-bar-idea{
+#nav-bar-idea{
     z-index: 100;
     padding: 20px;
   } 
@@ -6,10 +6,10 @@
   #nav-bar-idea p{
     z-index: 100;
     font-family: 'Lobster';
-    font-size: 26px;
+    font-size: 20px;
     border-radius: 15px;
-    color: 	 red;
-    border: solid red 2px;
+    color: 	 white;
+    border: solid white 2px;
     padding: 10px;
     margin-right: 10px;
     display: inline;
@@ -17,6 +17,18 @@
 
  #nav-bar-idea p:hover { 
    z-index: 100;
-   background-color: red;
-   color:	white; 
+   background-color: white;
+   color:	black; 
+  }
+
+  #main-container-idea{
+    background-image: url('https://www.esa.int/extension/pillars/design/pillars/images/nebula.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+  }
+
+  #saying-area{
+    background-color: white;
   }

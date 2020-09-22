@@ -27,6 +27,14 @@ function CreateAccount(props) {
           } 
           else {
             props.loginSuccess(data)
+            const Obj = {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ user_id: data.id })
+            }
+            fetch('http://localhost:3001/artboxes', Obj)
             props.history.push('/')
           }
         })
@@ -36,8 +44,7 @@ function CreateAccount(props) {
         <div id="main-body">
         <div id="form-content">  
         { error ? <h3>{ error }</h3> : null }
-        <Form>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
             <input 
                 type="text" 
                 placeholder="first name" 
@@ -75,7 +82,6 @@ function CreateAccount(props) {
             <Form.Field>
             <Button color='brown' type="submit">Submit</Button>
             </Form.Field>
-      </form>
       </Form>
       </div>  
       </div>

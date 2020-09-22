@@ -34,8 +34,7 @@ function Login(props) {
         <div id="main-body">
             <div id="form-content">
             { error ? <h2>{ error }</h2> : null }
-            <Form>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <input 
                     type="text" 
                     placeholder="username" 
@@ -53,7 +52,6 @@ function Login(props) {
                 <Form.Field>
                 <Button color='brown' type="submit">Submit</Button>
                 </Form.Field>
-            </form>
             </Form>
             </div>
         </div>

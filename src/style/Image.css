@@ -1,0 +1,28 @@
+#main-container-image{
+    background-image: url('https://cdn.shopify.com/s/files/1/0142/1757/6506/products/HJ13600.jpg?v=1589514611');
+    height: 650px;
+  }
+
+. #nav-bar-image{
+    z-index: 100;
+    padding: 20px;
+  } 
+  
+  #nav-bar-image p{
+    z-index: 100;
+    font-family: 'Lobster';
+    font-size: 20px;
+    border-radius: 15px;
+    color: 	 black;
+    border: solid black 2px;
+    padding: 10px;
+    margin-right: 10px;
+    display: inline;
+
+ }
+
+ #nav-bar-image p:hover { 
+   z-index: 100;
+   background-color: black;
+   color:	white; 
+  }
