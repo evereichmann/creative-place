@@ -1,0 +1,22 @@
+. #nav-bar-idea{
+    z-index: 100;
+    padding: 20px;
+  } 
+  
+  #nav-bar-idea p{
+    z-index: 100;
+    font-family: 'Lobster';
+    font-size: 26px;
+    border-radius: 15px;
+    color: 	 red;
+    border: solid red 2px;
+    padding: 10px;
+    margin-right: 10px;
+    display: inline;
+ }
+
+ #nav-bar-idea p:hover { 
+   z-index: 100;
+   background-color: red;
+   color:	white; 
+  }

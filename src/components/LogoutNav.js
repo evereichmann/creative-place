@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const LogoutNav = () => {
     return ( 
-        <div id="nav-bar">
+        <div>
             <Link to="/login"><p>Login</p></Link>
             <Link to="/createaccount"><p>Create Account</p></Link>
             <Link to="/"><p>Main</p></Link>  

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/Idea.css'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -71,7 +72,7 @@ class IdeaGenerator extends React.Component {
                 <div id="header">
                     <img src="https://i.ibb.co/XZ25pnm/Screen-Shot-2020-09-16-at-4-58-18-PM.png" alt=""/>
                 </div>
-                <div id="navigation">
+                <div id="nav-bar-idea">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
                 <div id="idea-body">

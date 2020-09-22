@@ -42,14 +42,14 @@ function Login(props) {
                     name="username" 
                     ref={register({required: true})} 
                     />
-                    { errors.username && <Label basic color='red'>'Username Error: feild cannot be empty'</Label> }
+                    { errors.username && <Label basic color='brown'>'Username Error: feild cannot be empty'</Label> }
                 <input 
                     type="text" 
                     placeholder="password" 
                     name="password" 
                     ref={register({required: true})}
                     />
-                    { errors.password && <Label basic color='red'>'Password Error: feild cannot be empty'</Label>}
+                    { errors.password && <Label basic color='brown'>'Password Error: feild cannot be empty'</Label>}
                 <Form.Field>
                 <Button color='brown' type="submit">Submit</Button>
                 </Form.Field>
