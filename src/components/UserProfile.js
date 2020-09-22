@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Image, Icon } from 'semantic-ui-react'
+import { Container, Grid, Icon } from 'semantic-ui-react'
 import {connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Avatar from 'react-avatar';
@@ -37,7 +37,6 @@ class UserProfile extends React.Component {
     }
 
     deleteImage = (e, image) => {
-        console.log('clicker', image)
         const regObj = {
             method: 'DELETE',
         }
@@ -55,7 +54,6 @@ class UserProfile extends React.Component {
     }
 
     deletePallete = (e, pallete) => {
-        console.log('delete pallete', pallete.id)
         const regObj = {
             method: 'DELETE',
         }

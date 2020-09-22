@@ -4,7 +4,7 @@ import '../style/Image.css'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
-import {likeImage} from '../actions/auth'
+import { likeImage } from '../actions/auth'
 import { likeUserImage } from '../actions/auth'
 
 class ImageGenerator extends React.Component {
@@ -79,10 +79,12 @@ class ImageGenerator extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                 <img height="400px" width="400px" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>
+                </Grid.Row>
+                <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
-                { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid.Row>
+                { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
                 </Container>
             </div>

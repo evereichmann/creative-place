@@ -170,9 +170,10 @@ class ColorGenerator extends React.Component {
                 <Grid.Row>
                 {colorarr.length ? colorarr : null}
                 </Grid.Row>
-
+                <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
+                </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
                 </Container>

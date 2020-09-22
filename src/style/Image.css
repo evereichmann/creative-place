@@ -1,6 +1,7 @@
 #main-container-image{
     background-image: url('https://cdn.shopify.com/s/files/1/0142/1757/6506/products/HJ13600.jpg?v=1589514611');
-}
+    height: 650px;
+  }
 
 . #nav-bar-image{
     z-index: 100;

@@ -36,6 +36,10 @@ export default function auth(state=null, action) {
         return {...state, user_image: [...state.user_image.filter(t => t.id !== action.id)]}
       case 'DELETE_PALLETE':
         return {...state, palletes: [...state.palletes.filter(t => t.id !== action.id)]}
+      case 'ADD_ITEM':
+        return {...state, items: [...state.items, action.item]}  
+      case 'DELETE_ITEM':
+        return {...state, items: [...state.items.filter(t => t.id !== action.id)]}
       default:
         return state
     }
