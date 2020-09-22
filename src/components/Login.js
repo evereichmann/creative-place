@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { loginSuccess } from '../actions/auth'
 import { connect } from 'react-redux'
+import { Label, Form, Button } from 'semantic-ui-react'
 
 function Login(props) {
 
@@ -33,6 +34,7 @@ function Login(props) {
         <div id="main-body">
             <div id="form-content">
             { error ? <h2>{ error }</h2> : null }
+            <Form>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input 
                     type="text" 
@@ -40,17 +42,19 @@ function Login(props) {
                     name="username" 
                     ref={register({required: true})} 
                     />
-                    { errors.username && 'Username Error: feild cannot be empty'}
+                    { errors.username && <Label basic color='brown'>'Username Error: feild cannot be empty'</Label> }
                 <input 
                     type="text" 
                     placeholder="password" 
                     name="password" 
                     ref={register({required: true})}
                     />
-                    { errors.password && 'Password Error: feild cannot be empty'}
-
-                <input type="submit"/>
+                    { errors.password && <Label basic color='brown'>'Password Error: feild cannot be empty'</Label>}
+                <Form.Field>
+                <Button color='brown' type="submit">Submit</Button>
+                </Form.Field>
             </form>
+            </Form>
             </div>
         </div>
      );

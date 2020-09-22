@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/Main.css'
 import { connect } from 'react-redux'
 import LogoutNav from './LogoutNav'
 import LoginNav from './LoginNav'
@@ -13,7 +14,7 @@ const Header = (props) => {
                     </div>
                     <img id="background" src="https://i.ibb.co/0DHnd3n/Screen-Shot-2020-09-15-at-12-47-31-PM.png" alt=""/>
                     <div id="nav-container">
-                        <div id="nav-bar">
+                        <div id="nav-bar-main">
                             { props.auth ? <LoginNav /> : <LogoutNav />}
                         </div>
                     </div>      

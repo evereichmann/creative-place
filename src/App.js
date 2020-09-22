@@ -3,7 +3,7 @@ import './App.css';
 import { Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Main from './components/Main';
-import NoMatch from './components/NoMatch';
+// import NoMatch from './components/NoMatch';
 import Login from './components/Login'
 import CreateAccount from './components/CreateAccount'
 import ImageGenerator from './components/ImageGenerator'
@@ -15,6 +15,7 @@ import Header from './components/Header'
 import Library from './components/Library'
 import SkillDrills from './components/SkillDrills'
 import ApproveSuggestions from './components/ApproveSuggestions'
+import Challenges from './components/Challenges'
 
 class App extends React.Component {
   render(){
@@ -28,7 +29,8 @@ class App extends React.Component {
         <Route exact path="/skilldrills" component={SkillDrills}/>
         <Route exact path="/approveSuggestions" component={ApproveSuggestions}/>
         <Route exact path="/profile" component={UserProfile}/>
-        <Route exact path="/users/artbox" component={Artbox}/>
+        <Route exact path="/profile/artbox" component={Artbox}/>
+        <Route exact path="/challenges" component={Challenges}/>
         <Fragment>
           <Header />
           <Route exact path='/' component={Main}/>
