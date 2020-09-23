@@ -173,6 +173,7 @@ class ColorGenerator extends React.Component {
                 <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
+                <button>Extra Help</button>
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>

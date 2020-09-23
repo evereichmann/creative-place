@@ -24,7 +24,7 @@ const Challenges = (props) => {
                 </Grid.Column>
                 <Grid.Column>
                     <h3>Magical March</h3>
-                    <Image src='https://lh3.googleusercontent.com/proxy/IUYUS00wlsTDOWcDhqxDnYq_tCnozbl5tSi3cpCs6Lr_4N0YClMWxQCpfkcZbZOPAeL28dwUUa5bj9nE8-rHMoBvTDDyfRZzS1GteSykpVwlEnKELS9w' />
+                    <Image height="300" width="300" src='https://i.pinimg.com/originals/1f/82/a3/1f82a3acdd0745423d59ef376908aaa5.jpg' />
                     <p>MagicalMarch was popularized <a href="https://www.instagram.com/p/BfHHisql-H_/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">by Mariana Real</a>. The first version of this challenge was <a href="https://www.deviantart.com/envyskort" target="_blank" rel="noopener noreferrer">Ruby's 31 Day Magical Girl Challenge</a> back in 2015. This challenge is drawing anything magical. People mostly do magical female characters.</p>
                 </Grid.Column>
                 <Grid.Column>

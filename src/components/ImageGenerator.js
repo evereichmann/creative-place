@@ -66,6 +66,11 @@ class ImageGenerator extends React.Component {
         }
     } 
 
+    clickArtbox = () => {
+        const randArtSupply = this.props.auth.items[Math.floor(Math.random() * this.props.auth.items.length)]
+        this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
+    }
+
     render() {
         return ( 
             <div id="main-container-image">
@@ -83,10 +88,13 @@ class ImageGenerator extends React.Component {
                 <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
+                <button>Grid</button>
+                <button>Black&White</button>
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
                 </Container>
+                {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
             </div>
          );
     }

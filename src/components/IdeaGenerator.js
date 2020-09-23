@@ -67,6 +67,11 @@ class IdeaGenerator extends React.Component {
         }
     }  
 
+    clickArtbox = () => {
+        const randArtSupply = this.props.auth.items[Math.floor(Math.random() * this.props.auth.items.length)]
+        this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
+    }
+
     render() { 
         return ( 
             <div id="main-container-idea">
@@ -83,11 +88,13 @@ class IdeaGenerator extends React.Component {
                     <h1 id="saying-area">{this.state.clicked && this.state.selectedIdea.saying}</h1>  
                     <button onClick={this.handleClick}>Generate</button>
                     <button onClick={this.handleSave}>Save</button>
+                    <button>Extra Help</button>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </div>
                 </Grid.Row>
                 </Grid>
                 </Container>
+                {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
             </div>
          );
     }

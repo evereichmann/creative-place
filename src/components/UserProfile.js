@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Icon } from 'semantic-ui-react'
+import { Container, Grid, Icon, Modal, Button, Image } from 'semantic-ui-react'
 import {connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Avatar from 'react-avatar';
@@ -13,11 +13,24 @@ import {deletePallete} from '../actions/auth'
 
 
 class UserProfile extends React.Component {
+    state = {
+        modalOpen: false, 
+        clickedImg: ''
+    }
+    
     componentDidMount() {
         if(!this.props.auth){
             this.props.history.push('/login')
         }
     }
+
+    handleOpen = (e, image) => {this.setState({ 
+        modalOpen: true,
+        clickedImg: image,
+    });
+    console.log('image', this.state, image)}
+
+    handleClose = () => this.setState({ modalOpen: false });
 
     deleteIdea = (e, idea) => {
         const regObj = {
@@ -86,6 +99,20 @@ class UserProfile extends React.Component {
                                  <div>
                                 <img height="100" width="100" src={image.img_url} alt=''/>
                                 <Icon name="x" size='large' onClick={()=>this.deleteImage( this, image)}></Icon>
+                                <Icon name="expand arrows alternate" size='large' onClick={()=>this.handleOpen(this, image)}></Icon>
+                                <Modal
+                                    open={this.state.modalOpen}
+                                    onClose={this.handleClose}
+                                    >
+                                        <Modal.Content image>
+                                            <Image src={this.state.clickedImg.img_url} wrapped />
+                                        </Modal.Content>
+                                        <Modal.Actions>
+                                            <Button onClick={this.handleClose} positive>
+                                                    Ok
+                                            </Button>
+                                        </Modal.Actions>
+                                        </Modal>
                                 </div>
                                 )
                          })}

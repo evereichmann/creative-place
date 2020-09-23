@@ -1,4 +1,5 @@
 import React from 'react';
+import { Label, Button, Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form';
 import { addItem } from '../actions/auth'
@@ -29,7 +30,7 @@ function ItemForm(props) {
     }
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <input list="name" name="name"  ref={register({ required: true })}></input>
       <datalist id="name" name="name">
         <option>Bic Pen</option>
@@ -50,7 +51,7 @@ function ItemForm(props) {
         <option>Staedtler Triplus</option>
         <option>Papermate Pen</option>
       </datalist>
-      { errors.name && 'Item Error: Must have a name'}
+      { errors.name && <Label basic color='red'>'Item Error: Must have a name'</Label>}
       <input list="description" name="description"  ref={register({ required: true })}></input>
       <datalist id="description" name="description">
         <option>Black</option>
@@ -64,9 +65,9 @@ function ItemForm(props) {
         <option>Purple</option>
         <option>Pink</option>
       </datalist>
-      { errors.description && 'Description Error: Must have a description'}
-      <input type="submit" />
-    </form>
+      { errors.description && <Label basic color='red'>'Description Error: Must have a description'</Label>}
+      <Button type="submit">Add</Button>
+    </Form>
   );
 }
 
