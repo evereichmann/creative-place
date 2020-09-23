@@ -72,6 +72,12 @@ class IdeaGenerator extends React.Component {
         this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
     }
 
+    handleExtrHelp = () => {
+        const help = ["Monochromatic - Red", "Monochromatic - Blue", "Monochromatic - Green", "Monochromatic - Yellow", "Monochromatic - Purple", "Monochromatic - Orange", "Two Colors", "Three Colors", "Hash Shading", "Complementary Colors", "Black and White", "Values", "Realistic", "Cartoon", "Bright", "Dark"]
+        const randomHelp = help[Math.floor(Math.random() * help.length)]
+        this.setState({error: randomHelp})
+    }
+
     render() { 
         return ( 
             <div id="main-container-idea">
@@ -88,7 +94,7 @@ class IdeaGenerator extends React.Component {
                     <h1 id="saying-area">{this.state.clicked && this.state.selectedIdea.saying}</h1>  
                     <button onClick={this.handleClick}>Generate</button>
                     <button onClick={this.handleSave}>Save</button>
-                    <button>Extra Help</button>
+                    <button onClick={this.handleExtrHelp}>Extra Help</button>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </div>
                 </Grid.Row>

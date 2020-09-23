@@ -71,6 +71,12 @@ class ImageGenerator extends React.Component {
         this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
     }
 
+    handleExtraHelp = () => {
+        const help = ["Monochromatic - Red", "Monochromatic - Blue", "Monochromatic - Green", "Monochromatic - Yellow", "Monochromatic - Purple", "Monochromatic - Orange", "Two Colors", "Three Colors", "Hash Shading", "Complementary Colors", "Black and White", "Values", "Realistic", "Cartoon", "Bright", "Dark"]
+        const randomHelp = help[Math.floor(Math.random() * help.length)]
+        this.setState({error: randomHelp})
+    }
+
     render() {
         return ( 
             <div id="main-container-image">
@@ -90,6 +96,7 @@ class ImageGenerator extends React.Component {
                 <button onClick={this.handleSave}>Save</button>
                 <button>Grid</button>
                 <button>Black&White</button>
+                <button onClick={this.handleExtraHelp}>Extra Help</button>
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>

@@ -134,6 +134,12 @@ class ColorGenerator extends React.Component {
         }
     } 
 
+    handleExtraHelp = () => {
+        const help = ["Animal - Cat", "Animal - Dog", "Animal - Bird", "Animal - Horse", "Animal", "Plant", "Tree", "Food", "Household item", "Furniture - Chair", "Furniture - Couch", "Furniture - Bed", "Machinery", "Automobile", "Character", "Self-portrait", "Portrait", "Hand", "Foot", "Figure Study"] 
+        const randomHelp = help[Math.floor(Math.random() * help.length)]
+        this.setState({ error: randomHelp });
+    }
+
     render() { 
         let colorarr = this.state.selectedColor.map(c => {
             return (<div>
@@ -173,7 +179,7 @@ class ColorGenerator extends React.Component {
                 <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
-                <button>Extra Help</button>
+                <button onClick={this.handleExtraHelp}>Extra Help</button>
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
