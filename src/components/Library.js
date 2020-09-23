@@ -1,26 +1,54 @@
 import React from 'react';
 import '../style/Library.css'
 import { connect } from 'react-redux'
-import { Container, Grid, Image } from 'semantic-ui-react'
+import { Container, Grid, Image} from 'semantic-ui-react'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 
-const Library = (props) => {
-    return ( 
-        <div id="main-library">
+
+class Library extends React.Component {
+    state = {
+        books: []
+    }
+    
+    componentDidMount() {
+        fetch('http://localhost:3001/books')
+            .then(resp => resp.json())
+            .then(data => {
+                this.setState({ books: data });
+            })
+    }
+
+    renderBooks = () => {
+        { return this.state.books.map(book => {
+            return(
+                    <div id="book">
+                    <a href={book.url} target="_blank" rel="noopener noreferrer"><Image height="200px" width="175px" src={book.img_url}/></a>
+                    </div>
+            )
+        })}
+    }
+
+    render() { 
+        console.log(this.state)
+        return ( 
+            <div id="main-library">
             <Container>
             <Grid> 
             <Grid.Row></Grid.Row>   
             <Grid.Row>
             <div id="nav-bar-main">
-                { props.auth ? <LoginNav /> : <LogoutNav /> }
+                { this.props.auth ? <LoginNav /> : <LogoutNav /> }
             </div>
-            </Grid.Row> 
-            <p>bookshelf</p>
-            </Grid>   
+            </Grid.Row>
+            </Grid> 
+            <Container>
+                < this.renderBooks/>  
+            </Container>
             </Container>
         </div>
-     );
+         );
+    }
 }
  
 const mapStateToProps = (state) => {

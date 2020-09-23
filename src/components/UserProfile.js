@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Grid, Icon, Modal, Button, Image, GridColumn } from 'semantic-ui-react'
-import {connect } from 'react-redux'
+import { Container, Grid, Icon, Modal, Button, Image } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Avatar from 'react-avatar';
 import LoginNav from './LoginNav'
