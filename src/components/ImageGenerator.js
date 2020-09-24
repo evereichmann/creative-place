@@ -6,6 +6,7 @@ import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import { likeImage } from '../actions/auth'
 import { likeUserImage } from '../actions/auth'
+import { loginSuccess } from '../actions/auth'
 
 class ImageGenerator extends React.Component {
     constructor(props){
@@ -25,9 +26,28 @@ class ImageGenerator extends React.Component {
             .then(data => {
                 this.setState({ images: data });
             })
+            const token = localStorage.getItem('CreativePlace')
+            if(!token){
+                return
+            }else {
+                const reqObj = {
+                   method: 'GET',
+                   headers: {
+                       'Authorization': `Bearer ${token}`
+                   } 
+                }
+                fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        this.props.loginSuccess(data)
+                    })
+            }    
     }
 
     handleClick = () => {
+        //set a varible of all of the images 
+        //map through and find approved of true 
+        //set selectedImage to only approved images
         this.setState({
           error: null,  
           clicked: true,
@@ -109,9 +129,8 @@ class ImageGenerator extends React.Component {
                 <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
-                <button>Grid</button>
-                 {this.state.bAndW? <button onClick={this.handleColor}>Color</button> : <button onClick={this.handleColorGrey}>Black&White</button> }
                 <button onClick={this.handleExtraHelp}>Extra Help</button>
+                {this.state.bAndW? <button onClick={this.handleColor}>Color</button> : <button onClick={this.handleColorGrey}>Black&White</button> }
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
@@ -130,7 +149,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = {
     likeImage,
-    likeUserImage
+    likeUserImage, 
+    loginSuccess
 }
  
 export default connect(mapStateToProps, mapDispatchtoProps)(ImageGenerator);

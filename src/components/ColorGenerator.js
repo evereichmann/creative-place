@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import {likeColors} from '../actions/auth'
+import { loginSuccess } from '../actions/auth'
 
 class ColorGenerator extends React.Component {
     constructor(props){
@@ -23,6 +24,22 @@ class ColorGenerator extends React.Component {
             .then(data => {
                 this.setState({ colors: data });
             })
+            const token = localStorage.getItem('CreativePlace')
+        if(!token){
+            return
+        }else {
+            const reqObj = {
+               method: 'GET',
+               headers: {
+                   'Authorization': `Bearer ${token}`
+               } 
+            }
+            fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                .then(resp => resp.json())
+                .then(data => {
+                    this.props.loginSuccess(data)
+                })
+        }
     }
 
     handleClick = () => {
@@ -196,7 +213,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    likeColors
+    likeColors,
+    loginSuccess
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColorGenerator);
