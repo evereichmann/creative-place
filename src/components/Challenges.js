@@ -7,9 +7,28 @@ import { Container, Image } from 'semantic-ui-react'
 import Slider from "react-slick";
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
-
+import { loginSuccess } from '../actions/auth'
 
 class Challenges extends React.Component {
+    componentDidMount() {
+        const token = localStorage.getItem('CreativePlace')
+        if(!token){
+            this.props.history.push('/login')
+        }else {
+            const reqObj = {
+               method: 'GET',
+               headers: {
+                   'Authorization': `Bearer ${token}`
+               } 
+            }
+            fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                .then(resp => resp.json())
+                .then(data => {
+                    this.props.loginSuccess(data)
+                })
+        }
+    }
+    
     render() { 
             const settings = {
                 dots: true,
@@ -98,5 +117,8 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = {
+    loginSuccess
+}
 
-export default connect(mapStateToProps, null)(Challenges);
+export default connect(mapStateToProps, mapDispatchToProps)(Challenges);

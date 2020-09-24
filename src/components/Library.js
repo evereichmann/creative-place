@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Container, Grid, Image} from 'semantic-ui-react'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
+import { loginSuccess } from '../actions/auth'
 
 
 class Library extends React.Component {
@@ -17,6 +18,22 @@ class Library extends React.Component {
             .then(data => {
                 this.setState({ books: data });
             })
+            const token = localStorage.getItem('CreativePlace')
+            if(!token){
+                return
+            }else {
+                const reqObj = {
+                   method: 'GET',
+                   headers: {
+                       'Authorization': `Bearer ${token}`
+                   } 
+                }
+                fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        this.props.loginSuccess(data)
+                    })
+            }    
     }
 
     renderBooks = () => {
@@ -56,5 +73,8 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = {
+    loginSuccess
+}
 
-export default connect(mapStateToProps, null)(Library);
+export default connect(mapStateToProps, mapDispatchToProps)(Library);

@@ -6,6 +6,7 @@ import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import { likeIdea } from '../actions/auth'
 import {userIdeaUpdate} from '../actions/auth'
+import { loginSuccess } from '../actions/auth'
 
 class IdeaGenerator extends React.Component {
     constructor(props){
@@ -24,9 +25,28 @@ class IdeaGenerator extends React.Component {
             .then(data => {
                 this.setState({ ideas: data});
             })
+            const token = localStorage.getItem('CreativePlace')
+            if(!token){
+                return
+            }else {
+                const reqObj = {
+                   method: 'GET',
+                   headers: {
+                       'Authorization': `Bearer ${token}`
+                   } 
+                }
+                fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        this.props.loginSuccess(data)
+                    })
+            }
      }
 
      handleClick = () => {
+        //set a varible of all of the images 
+        //map through and find approved of true 
+        //set selectedImage to only approved images
         this.setState({
           error: null,
           clicked: true, 
@@ -117,7 +137,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = {
     likeIdea,
-    userIdeaUpdate
+    userIdeaUpdate,
+    loginSuccess
 }
   
 export default connect(mapStateToProps, mapDispatchtoProps)(IdeaGenerator);

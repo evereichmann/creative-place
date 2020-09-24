@@ -16,7 +16,7 @@ import { loginSuccess } from '../actions/auth'
 class UserProfile extends React.Component {
     state = {
         modalOpen: false, 
-        clickedImg: ''
+        clickedImg: '',
     }
     
     componentDidMount() {
@@ -131,12 +131,10 @@ class UserProfile extends React.Component {
                                     onClose={this.handleClose}
                                     >
                                         <Modal.Content image>
-                                            <Image src={this.state.clickedImg.img_url} wrapped />
+                                            <Image id="image" src={this.state.clickedImg.img_url}/>
                                         </Modal.Content>
                                         <Modal.Actions>
-                                            <Button onClick={this.handleClose} positive>
-                                                    Ok
-                                            </Button>
+                                            <Button onClick={this.handleClose} positive>Close</Button>
                                         </Modal.Actions>
                                         </Modal>
                                 </div>
