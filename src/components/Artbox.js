@@ -5,15 +5,39 @@ import ItemForm from './ItemForm'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import { deleteItem } from '../actions/auth'
+import { loginSuccess } from '../actions/auth'
 
 class Artbox extends React.Component {
     componentDidMount() {
-        if(!this.props.auth){
+        const token = localStorage.getItem('CreativePlace')
+        if(!token){
             this.props.history.push('/login')
+        }else {
+            const reqObj = {
+               method: 'GET',
+               headers: {
+                   'Authorization': `Bearer ${token}`
+               } 
+            }
+            fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                .then(resp => resp.json())
+                .then(data => {
+                    this.props.loginSuccess(data)
+                })
         }
     }
 
     renderPage = () => {
+        if(this.props.auth.items.length === 0){
+            return (
+                <div>
+                    <Container>
+                        <br/>
+                        <h3>add items</h3>
+                    </Container>
+                </div>
+            )
+        }else{
         { return this.props.auth.items.map(item => {
             return(
                 <div>
@@ -24,7 +48,7 @@ class Artbox extends React.Component {
                     </Container>
                 </div>
             )
-        })}
+        })}}
     }
 
     deleteItem = (e, item) => {
@@ -69,7 +93,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    deleteItem
+    deleteItem,
+    loginSuccess
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Artbox);

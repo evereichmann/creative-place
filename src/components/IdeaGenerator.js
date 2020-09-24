@@ -68,9 +68,12 @@ class IdeaGenerator extends React.Component {
     }  
 
     clickArtbox = () => {
+        if(this.props.auth.items.length === 0){
+            this.setState({ error: "you need to add items to your artbox" });
+        }else{
         const randArtSupply = this.props.auth.items[Math.floor(Math.random() * this.props.auth.items.length)]
         this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
-    }
+    }}
 
     handleExtrHelp = () => {
         const help = ["Monochromatic - Red", "Monochromatic - Blue", "Monochromatic - Green", "Monochromatic - Yellow", "Monochromatic - Purple", "Monochromatic - Orange", "Two Colors", "Three Colors", "Hash Shading", "Complementary Colors", "Black and White", "Values", "Realistic", "Cartoon", "Bright", "Dark"]

@@ -14,15 +14,13 @@ class Main extends React.Component {
   componentDidMount() {
     let keys = []
     window.addEventListener('keyup', function(e){
-      // if(e.key === "ArrowUp"){
-      // }
       keys.push(e.key)
       if(keys[0] && keys[1] === "ArrowUp", keys[2] && keys[3] === "ArrowDown", keys[4] === "ArrowLeft", keys[5] === "ArrowRight", keys[6] === "ArrowLeft", keys[7] === "ArrowRight"){
       window.location.href = ('/about')
      }else if(keys[0] !== "ArrowUp"){
        keys = []
      }
-    })
+      })
       const token = localStorage.getItem('CreativePlace')
       if(!token){
           return 
