@@ -10,6 +10,7 @@ import { deleteUserIdea } from '../actions/auth'
 import { deleteImage } from '../actions/auth'
 import { deleteUserImage } from '../actions/auth'
 import {deletePallete} from '../actions/auth'
+import { loginSuccess } from '../actions/auth'
 
 
 class UserProfile extends React.Component {
@@ -19,8 +20,21 @@ class UserProfile extends React.Component {
     }
     
     componentDidMount() {
-        if(!this.props.auth){
+        const token = localStorage.getItem('CreativePlace')
+        if(!token){
             this.props.history.push('/login')
+        }else {
+            const reqObj = {
+               method: 'GET',
+               headers: {
+                   'Authorization': `Bearer ${token}`
+               } 
+            }
+            fetch('http://localhost:3001/api/v1/current_user', reqObj)
+                .then(resp => resp.json())
+                .then(data => {
+                    this.props.loginSuccess(data)
+                })
         }
     }
 
@@ -181,7 +195,8 @@ const mapDispatchToProps = {
     deleteUserIdea,
     deleteImage,
     deleteUserImage,
-    deletePallete
+    deletePallete,
+    loginSuccess
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

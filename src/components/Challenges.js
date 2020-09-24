@@ -31,7 +31,7 @@ class Challenges extends React.Component {
                     { this.props.auth ? <LoginNav /> : <LogoutNav /> }
                 </div>
             <Container>
-                <div>
+                <div id="slider-div">
                     <br/>
                         <Slider {...settings} id="slider-container">
                         <div>
@@ -85,6 +85,7 @@ class Challenges extends React.Component {
                 </Container>
                 <Container>
                     <h3>User Challanges</h3>
+
                 </Container>
             </Container>
         </div> );

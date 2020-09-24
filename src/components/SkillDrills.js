@@ -65,12 +65,12 @@ const SkillDrills = (props) => {
                     <Grid.Column>
                         <h3>Change The Perspective</h3>
                         <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwmLU4D67HRHuti1e8XGA0OwUayUi5LchqfQ&usqp=CAU' alt=''/>
-                        <p></p>
+                        <p>light and stuff</p>
                     </Grid.Column>
                     <Grid.Column>
                         <h3>Break It Down</h3>
                         <img src='https://www.beginnersschool.com/wp-content/uploads/2013/11/FormsStillLife_2.jpg' alt=''/>
-                        <p></p>
+                        <p>This makes you see an object in smaller fundimental shapes.</p>
                     </Grid.Column>
                     <Grid.Column>
                         <h3>Non-Dominant Hand</h3>

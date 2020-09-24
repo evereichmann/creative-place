@@ -30,7 +30,6 @@ class Library extends React.Component {
     }
 
     render() { 
-        console.log(this.state)
         return ( 
             <div id="main-library">
             <Container>

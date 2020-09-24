@@ -25,6 +25,7 @@ function Login(props) {
               setError(data.error)
           } else {
             props.loginSuccess(data)
+            localStorage.setItem('CreativePlace', data.token)
             props.history.push('/')
           }
         })
