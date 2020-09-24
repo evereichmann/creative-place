@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid } from 'semantic-ui-react'
+import { Container, Grid, Image } from 'semantic-ui-react'
 import '../style/Image.css'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
@@ -14,7 +14,8 @@ class ImageGenerator extends React.Component {
             images: [],
             selectedImage: null,
             clicked: false, 
-            error: ''
+            error: '',
+            bAndW: false, 
         }
     }
 
@@ -29,7 +30,8 @@ class ImageGenerator extends React.Component {
     handleClick = () => {
         this.setState({
           error: null,  
-          clicked: true, 
+          clicked: true,
+          bAndW: false, 
           selectedImage: this.state.images[Math.floor(Math.random() * this.state.images.length)]
         })
       }
@@ -66,6 +68,30 @@ class ImageGenerator extends React.Component {
         }
     } 
 
+    clickArtbox = () => {
+        if(this.props.auth.items.length === 0){
+            this.setState({ error: "you need to add items to your artbox" });
+        }else{
+        const randArtSupply = this.props.auth.items[Math.floor(Math.random() * this.props.auth.items.length)]
+        this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
+    }}
+
+    handleExtraHelp = () => {
+        const help = ["Monochromatic - Red", "Monochromatic - Blue", "Monochromatic - Green", "Monochromatic - Yellow", "Monochromatic - Purple", "Monochromatic - Orange", "Two Colors", "Three Colors", "Hash Shading", "Complementary Colors", "Black and White", "Values", "Realistic", "Cartoon", "Bright", "Dark"]
+        const randomHelp = help[Math.floor(Math.random() * help.length)]
+        this.setState({error: randomHelp})
+    }
+
+    handleColorGrey = () => {
+        this.setState({ bAndW: true });
+        document.getElementById("image").style.filter = "grayscale(100%)";
+    }
+
+    handleColor = () => {
+        this.setState({ bAndW: false });
+        document.getElementById("image").style.filter = "grayscale(0%)";
+    }
+
     render() {
         return ( 
             <div id="main-container-image">
@@ -78,15 +104,19 @@ class ImageGenerator extends React.Component {
                 </div>
                 </Grid.Row>
                 <Grid.Row>
-                <img height="400px" width="400px" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>
+                    <Image height="400px" width="400px" id="image" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>    
                 </Grid.Row>
                 <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
+                <button>Grid</button>
+                 {this.state.bAndW? <button onClick={this.handleColor}>Color</button> : <button onClick={this.handleColorGrey}>Black&White</button> }
+                <button onClick={this.handleExtraHelp}>Extra Help</button>
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
                 </Container>
+                {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
             </div>
          );
     }

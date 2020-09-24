@@ -27,6 +27,7 @@ function CreateAccount(props) {
           } 
           else {
             props.loginSuccess(data)
+            localStorage.setItem('CreativePlace', data.token)
             const Obj = {
               method: 'POST',
               headers: {

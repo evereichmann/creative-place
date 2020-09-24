@@ -3,7 +3,7 @@ import './App.css';
 import { Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Main from './components/Main';
-// import NoMatch from './components/NoMatch';
+import NoMatch from './components/NoMatch';
 import Login from './components/Login'
 import CreateAccount from './components/CreateAccount'
 import ImageGenerator from './components/ImageGenerator'
@@ -16,6 +16,7 @@ import Library from './components/Library'
 import SkillDrills from './components/SkillDrills'
 import ApproveSuggestions from './components/ApproveSuggestions'
 import Challenges from './components/Challenges'
+import About from './components/About'
 
 class App extends React.Component {
   render(){
@@ -31,12 +32,13 @@ class App extends React.Component {
         <Route exact path="/profile" component={UserProfile}/>
         <Route exact path="/profile/artbox" component={Artbox}/>
         <Route exact path="/challenges" component={Challenges}/>
+        <Route path='/about' component={About}/>
+      {/* <Route component={NoMatch}/>  */}
         <Fragment>
           <Header />
           <Route exact path='/' component={Main}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path="/createaccount" component={CreateAccount}/>
-          {/* <Route exact path='' component={NoMatch}/>  */}
+          <Route exact path='/createaccount' component={CreateAccount}/>
         </Fragment>  
       </Switch>
     </div>

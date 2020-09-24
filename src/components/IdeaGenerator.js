@@ -67,6 +67,20 @@ class IdeaGenerator extends React.Component {
         }
     }  
 
+    clickArtbox = () => {
+        if(this.props.auth.items.length === 0){
+            this.setState({ error: "you need to add items to your artbox" });
+        }else{
+        const randArtSupply = this.props.auth.items[Math.floor(Math.random() * this.props.auth.items.length)]
+        this.setState({ error: `${randArtSupply.name} | ${randArtSupply.description}`});
+    }}
+
+    handleExtrHelp = () => {
+        const help = ["Monochromatic - Red", "Monochromatic - Blue", "Monochromatic - Green", "Monochromatic - Yellow", "Monochromatic - Purple", "Monochromatic - Orange", "Two Colors", "Three Colors", "Hash Shading", "Complementary Colors", "Black and White", "Values", "Realistic", "Cartoon", "Bright", "Dark"]
+        const randomHelp = help[Math.floor(Math.random() * help.length)]
+        this.setState({error: randomHelp})
+    }
+
     render() { 
         return ( 
             <div id="main-container-idea">
@@ -83,11 +97,13 @@ class IdeaGenerator extends React.Component {
                     <h1 id="saying-area">{this.state.clicked && this.state.selectedIdea.saying}</h1>  
                     <button onClick={this.handleClick}>Generate</button>
                     <button onClick={this.handleSave}>Save</button>
+                    <button onClick={this.handleExtrHelp}>Extra Help</button>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </div>
                 </Grid.Row>
                 </Grid>
                 </Container>
+                {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
             </div>
          );
     }
