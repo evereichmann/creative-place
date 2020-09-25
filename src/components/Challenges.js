@@ -13,7 +13,7 @@ class Challenges extends React.Component {
     componentDidMount() {
         const token = localStorage.getItem('CreativePlace')
         if(!token){
-            this.props.history.push('/login')
+            return
         }else {
             const reqObj = {
                method: 'GET',
