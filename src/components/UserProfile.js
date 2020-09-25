@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
         const token = localStorage.getItem('CreativePlace')
         if(!token){
             this.props.history.push('/login')
-        }else {
+        }else{
             const reqObj = {
                method: 'GET',
                headers: {
@@ -172,7 +172,7 @@ class UserProfile extends React.Component {
                     <Grid.Row></Grid.Row>
                     <Container>
                     <div>
-                        { this.props.auth ? < this.renderPage /> : null}  
+                        { this.props.auth ? < this.renderPage /> : <h1>Welcome to Creative Place</h1>}  
                     </div>
                     </Container>
                 </Grid> 
