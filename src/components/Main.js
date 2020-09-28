@@ -38,10 +38,6 @@ class Main extends React.Component {
               })
       }
   }
-    
-  renderAbout() {
-    console.log("go to about")
-  }
 
   render() { 
     return ( 

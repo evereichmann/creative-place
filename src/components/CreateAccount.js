@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { loginSuccess } from '../actions/auth'
 import { connect } from 'react-redux'
 import { Label, Form, Button } from 'semantic-ui-react'
+import { logoutSuccess } from '../actions/auth'
 
 function CreateAccount(props) {
     const [error, setError] = useState(null)
@@ -16,7 +17,6 @@ function CreateAccount(props) {
           },
           body: JSON.stringify({'user': data })
         }
-      
         fetch('http://localhost:3001/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
@@ -26,8 +26,6 @@ function CreateAccount(props) {
             setError("sorry about this but that username has taken already")
           } 
           else {
-            props.loginSuccess(data)
-            localStorage.setItem('CreativePlace', data.token)
             const Obj = {
               method: 'POST',
               headers: {
@@ -36,7 +34,24 @@ function CreateAccount(props) {
               body: JSON.stringify({ user_id: data.id })
             }
             fetch('http://localhost:3001/artboxes', Obj)
-            props.history.push('/')
+            const reqOb = {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            }
+            fetch('http://localhost:3001/api/v1/auth', reqOb)  
+            .then(resp => resp.json())
+            .then(data => {
+              if (data.error) {
+                  setError(data.error)
+              } else {
+                localStorage.setItem('CreativePlace', data.token)
+                props.loginSuccess(data)
+                props.history.push('/')
+              }
+            })
           }
         })
       }
@@ -60,12 +75,12 @@ function CreateAccount(props) {
                 ref={register({required: true, min: 50, pattern: /[A-Za-z]/i})} 
                 />
                 { errors.last_name && <Label basic color='brown'>'Last Name Error: Can only be letters, and max 50 charaicters'</Label>}
-            {/* <input 
+            <input 
             type="text" 
             placeholder="Email" 
             name="Email" 
-            ref={register({required: true, pattern: /^\S+@\S+$/i})} 
-            /> */}
+            ref={register({required: true})} 
+            />
             <input 
                 type="text" 
                 placeholder="username" 
@@ -90,7 +105,8 @@ function CreateAccount(props) {
 }
  
 const mapDispatchToProps = {
-    loginSuccess
+    loginSuccess, 
+    logoutSuccess
   }
   
   export default connect(null, mapDispatchToProps)(CreateAccount)

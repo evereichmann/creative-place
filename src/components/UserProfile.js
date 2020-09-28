@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
         const token = localStorage.getItem('CreativePlace')
         if(!token){
             this.props.history.push('/login')
-        }else {
+        }else{
             const reqObj = {
                method: 'GET',
                headers: {
@@ -99,10 +99,7 @@ class UserProfile extends React.Component {
                         <Avatar color={color} name={username} round={true}/>
                         <p></p>
                         <p></p>
-                        <p>Location: </p>
                         <p>Name: { this.props.auth.first_name} { this.props.auth.last_name}</p>
-                        <p>Birthday:</p>
-                        <p>Interests:</p>
                     </Grid.Column>
                     <Grid.Column>
                     <p></p>
@@ -172,7 +169,7 @@ class UserProfile extends React.Component {
                     <Grid.Row></Grid.Row>
                     <Container>
                     <div>
-                        { this.props.auth ? < this.renderPage /> : null}  
+                        { this.props.auth ? < this.renderPage /> : <h1>Welcome to Creative Place</h1>}  
                     </div>
                     </Container>
                 </Grid> 

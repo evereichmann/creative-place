@@ -1,20 +1,33 @@
-#main-container-image{
-    background-image: url('https://cdn.shopify.com/s/files/1/0142/1757/6506/products/HJ13600.jpg?v=1589514611');
-    height: 650px;
-  }
+#image-background{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-. #nav-bar-image{
-    z-index: 100;
-    padding: 20px;
-  } 
-  
-  #nav-bar-image p{
+#image-title{
+  z-index: 100;
+ font-family: Lobster;
+ padding-top: 15px;
+ font-size: 50px;
+}
+
+#nav-bar-image{
+  z-index: 100;
+  padding: 25px;
+  margin-top: 90px;
+} 
+
+#nav-bar-image p{
     z-index: 100;
     font-family: 'Lobster';
     font-size: 20px;
     border-radius: 15px;
-    color: 	 black;
-    border: solid black 2px;
+    color: black;
+    border: solid darkgrey 2px;
+    background-color: lightgrey;
     padding: 10px;
     margin-right: 10px;
     display: inline;
@@ -25,4 +38,71 @@
    z-index: 100;
    background-color: black;
    color:	white; 
+  }
+
+  #generated-image{
+    z-index: 100;
+    left: 30%;
+    top: 100%;
+    border: 1px solid black;
+    position: absolute;
+  }
+  
+  #image-generate-button{
+    z-index: 100;
+    top: 300px;
+    left: 3%;
+    position: absolute;
+  }
+
+  #image-save-button{
+    z-index: 100;
+    top: 350px;
+    left: 3%;
+    position: absolute;
+  }
+
+  #image-help-button{
+    z-index: 100;
+    top: 400px;
+    left: 3%;
+    position: absolute;
+  }
+
+  #image-color-button{
+    z-index: 100;
+    top: 450px;
+    left: 3%;
+    position: absolute;
+  }
+
+  #image-artbox{
+    z-index: 100;
+    top: 550px;
+    left: 2%;
+    position: absolute;
+  }
+
+  #image-error{
+    z-index: 50;
+    position: absolute;
+    height: 150px;
+    width: 220px;
+    transform: scaleX(-1);
+    right: 9%;
+    top: 76%;
+  }
+
+  #image-error-message{
+    /* border: 2px solid pink; */
+    height: 75px;
+    width: 150px;
+    z-index: 70;
+    position: absolute;
+    right: 14%;
+    top: 80%;
+    text-align: center;
+    font-family: 'Lobster';
+    font-size: 16px;
+    font-size: 1.6vw;
   }

@@ -3,7 +3,7 @@ import './App.css';
 import { Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Main from './components/Main';
-import NoMatch from './components/NoMatch';
+// import NoMatch from './components/NoMatch';
 import Login from './components/Login'
 import CreateAccount from './components/CreateAccount'
 import ImageGenerator from './components/ImageGenerator'
