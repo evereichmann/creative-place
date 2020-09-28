@@ -27,38 +27,45 @@ const ChallengesForm = (props) => {
 
     return ( 
         <div>
-            <p>Create your own challenge and share it with the art community.</p>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-            <input 
-                type="text" 
-                placeholder="title" 
-                name="title" 
-                ref={register({required: true})} 
-                />
-                { errors.title && <Label basic color='red'>'Title Error: must have a title'</Label>}
-            <input 
-                type="text" 
-                placeholder="length" 
-                name="length" 
-                ref={register({required: true})} 
-                />
-                { errors.length && <Label basic color='red'>'Length Error: must have a duration'</Label>}
-            <textarea 
-                type="text" 
-                placeholder="description" 
-                name="description" 
-                ref={register({required: true})} 
-                />
-                { errors.rules && <Label basic color='red'>'Rule Error: must have rules'</Label>}
+            {props.auth ? 
+                <div>
+                    <p>Create your own challenge and share it with the art community.</p>
+                        <Form onSubmit={handleSubmit(onSubmit)}>
+                        <input 
+                            type="text" 
+                            placeholder="title" 
+                            name="title" 
+                            ref={register({required: true})} 
+                            />
+                            { errors.title && <Label basic color='red'>'Title Error: must have a title'</Label>}
+                        <input 
+                            type="text" 
+                            placeholder="length" 
+                            name="length" 
+                            ref={register({required: true})} 
+                            />
+                            { errors.length && <Label basic color='red'>'Length Error: must have a duration'</Label>}
+                        <textarea 
+                            type="text" 
+                            placeholder="description" 
+                            name="description" 
+                            ref={register({required: true})} 
+                            />
+                            { errors.rules && <Label basic color='red'>'Rule Error: must have rules'</Label>}
 
-            <input 
-                type="text" 
-                placeholder="img_url" 
-                name="img_url" 
-                ref={register}
-                />
-            <Button color="blue" type="submit">Submit</Button>
-            </Form>
+                        <input 
+                            type="text" 
+                            placeholder="img_url" 
+                            name="img_url" 
+                            ref={register}
+                            />
+                        <Button color="blue" type="submit">Submit</Button>
+                        </Form>
+                </div>
+            
+            : 
+            <p>create an account</p>}
+            
         </div>
      );
 }

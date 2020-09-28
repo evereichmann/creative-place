@@ -16,6 +16,11 @@ class Challenges extends React.Component {
         challenges: []
     }
     componentDidMount() {
+        fetch('http://localhost:3001/challenges')
+            .then(resp => resp.json())
+            .then(data => {
+                this.setState({ challenges: data });
+            })
         const token = localStorage.getItem('CreativePlace')
         if(!token){
             return
@@ -32,11 +37,6 @@ class Challenges extends React.Component {
                     this.props.loginSuccess(data)
                 })
         }
-        fetch('http://localhost:3001/challenges')
-            .then(resp => resp.json())
-            .then(data => {
-                this.setState({ challenges: data });
-            })
     }
 
     handleForm = () => {
@@ -60,16 +60,19 @@ class Challenges extends React.Component {
         { return this.state.challenges.map(challenge => {
             return (
                 <div id="challenge-card">
-                    { challenge.user_id === this.props.auth.id ? <Icon name="x" size='large' onClick={()=>this.deleteChallenge( this, challenge )}></Icon> : null }
+                    {this.props.auth ? 
+                     challenge.user_id === this.props.auth.id ? <Icon name="x" size='large' onClick={()=>this.deleteChallenge( this, challenge )}></Icon> : null 
+                    : 
+                    null  }
                     <h3>{challenge.title}</h3>
                     <p>length: {challenge.length}</p>
                     <p>description: {challenge.description}</p>
-                    <img height="200" width="200" src={challenge.img_url} alt=''/>
+                    { challenge.img_url === "" ? null : <img height="200" width="200" src={challenge.img_url} alt=''/> }
                 </div>
             )
         })}
     }
-    
+
     render() { 
             const settings = {
                 dots: true,
@@ -143,10 +146,8 @@ class Challenges extends React.Component {
                     </div>
                     <br/>
                 </Container>
-                <Container>
-                    { !this.state.isClicked ? null : < ChallengesForm /> } 
-                    { !this.state.isClicked ? <Button onClick={this.handleForm}>Create Challenge</Button> : <Button  color="blue" onClick={this.handleForm}>Close Form</Button>}
-                </Container>
+                { !this.state.isClicked ? null : < ChallengesForm /> } 
+                { !this.state.isClicked ? <Button onClick={this.handleForm}>Create Challenge</Button> : <Button  color="blue" onClick={this.handleForm}>Close Form</Button>}
                 <Container>
                    < this.renderChallenges />
                 </Container>
