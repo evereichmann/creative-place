@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Image } from 'semantic-ui-react'
+import { Container, Image, Button } from 'semantic-ui-react'
 import '../style/Image.css'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
@@ -115,26 +115,22 @@ class ImageGenerator extends React.Component {
     render() {
         return ( 
             <div id="main-container-image">
-                <Container>
-                    <Grid>
-                        <Grid.Row></Grid.Row>
-                        <Grid.Row>
+                <img id="image-background" src="https://i.ibb.co/86xRDZy/Screen-Shot-2020-09-28-at-3-54-13-PM.png" alt=""/>
+                <Container>    
+                <h1 id="image-title">Image Generator</h1>
                 <div id="nav-bar-image">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
-                </Grid.Row>
-                <Grid.Row>
-                    <Image height="400px" width="400px" id="image" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>    
-                </Grid.Row>
-                <Grid.Row>
-                <button onClick={this.handleClick}>Generate</button>
-                <button onClick={this.handleSave}>Save</button>
-                <button onClick={this.handleExtraHelp}>Extra Help</button>
-                {this.state.bAndW? <button onClick={this.handleColor}>Color</button> : <button onClick={this.handleColorGrey}>Black&White</button> }
-                </Grid.Row>
-                { this.state.error ? <h2>{ this.state.error }</h2> : null }
-                </Grid>
-                {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
+                <div id="generated-image">
+                    <Image height="350px" width="350px" id="image" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>    
+                </div>
+                <Button color='brown' size='large' id="image-generate-button" onClick={this.handleClick}>Generate</Button>
+                <Button color='brown' size='large' id="image-save-button" onClick={this.handleSave}>Save</Button>
+                <Button color='brown' size='large' id="image-help-button" onClick={this.handleExtraHelp}>Extra Help</Button>
+                {this.state.bAndW? <Button color='brown' size='large' id="image-color-button" onClick={this.handleColor}>Color</Button> : <Button size='large' color='brown' id="image-color-button" onClick={this.handleColorGrey}>Black&White</Button> }
+                { this.state.error ? <h2 id="image-error-message">{ this.state.error }</h2> : null }
+                { this.state.error ? <img id="image-error" src="https://i.ibb.co/99DHf38/Screen-Shot-2020-09-28-at-9-40-36-AM.png" alt=""/> : null}
+                {this.props.auth? <img id="image-artbox" onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
                 </Container>
             </div>
          );
