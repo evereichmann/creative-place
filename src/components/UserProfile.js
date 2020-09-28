@@ -99,10 +99,7 @@ class UserProfile extends React.Component {
                         <Avatar color={color} name={username} round={true}/>
                         <p></p>
                         <p></p>
-                        <p>Location: </p>
                         <p>Name: { this.props.auth.first_name} { this.props.auth.last_name}</p>
-                        <p>Birthday:</p>
-                        <p>Interests:</p>
                     </Grid.Column>
                     <Grid.Column>
                     <p></p>

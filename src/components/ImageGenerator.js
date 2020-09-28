@@ -134,8 +134,8 @@ class ImageGenerator extends React.Component {
                 </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
                 </Grid>
-                </Container>
                 {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
+                </Container>
             </div>
          );
     }

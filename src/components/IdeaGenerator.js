@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/Idea.css'
-import { Container, Grid } from 'semantic-ui-react'
+import { Container, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -103,27 +103,28 @@ class IdeaGenerator extends React.Component {
 
     render() { 
         return ( 
+            <div class="stars">
+            <div class="twinkling">
             <div id="main-container-idea">
+                <img id="background-image-idea" src="https://www.esa.int/extension/pillars/design/pillars/images/nebula.jpg" alt="" />
                 <Container>
-                    <Grid>
-                        <Grid.Row></Grid.Row>
-                        <Grid.Row>
-                <div id="nav-bar-idea">
-                { this.props.auth ? <LoginNav /> : <LogoutNav />}
-                </div>
-                </Grid.Row>
-                <Grid.Row>
-                <div id="idea-body">
-                    <h1 id="saying-area">{this.state.clicked && this.state.selectedIdea.saying}</h1>  
-                    <button onClick={this.handleClick}>Generate</button>
-                    <button onClick={this.handleSave}>Save</button>
-                    <button onClick={this.handleExtrHelp}>Extra Help</button>
-                { this.state.error ? <h2>{ this.state.error }</h2> : null }
-                </div>
-                </Grid.Row>
-                </Grid>
+                    <h1 id="idea-title">Idea Generator</h1>
+                        <div id="nav-bar-idea">
+                        { this.props.auth ? <LoginNav /> : <LogoutNav />}
+                        </div>
+                            { this.state.error ? <h3 id="idea-error-message">{ this.state.error }</h3> : null }
+                            { this.state.error ? <img id="idea-error" src="https://i.ibb.co/99DHf38/Screen-Shot-2020-09-28-at-9-40-36-AM.png" alt=""/> : null }
+                        <div id="idea-body">
+                            {this.props.auth? <img id="idea-artbox" onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
+                            <h2 id="saying-area">{this.state.clicked && this.state.selectedIdea.saying}</h2>  
+                            <img id="spaceship" src="https://i.ibb.co/n3XTxxC/Screen-Shot-2020-09-28-at-9-39-06-AM.png" alt=""/>
+                            <Button inverted color='teal' size='big' id="idea-generate" onClick={this.handleClick}>Generate</Button>
+                            <Button inverted color='teal' size='big' id="idea-save" onClick={this.handleSave}>Save</Button>
+                            <Button inverted color='teal' size='big' id="idea-extra" onClick={this.handleExtrHelp}>Extra Help</Button>
+                        </div>
                 </Container>
-                {this.props.auth? <img onClick={this.clickArtbox} height="75px" width="75px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/> : null}
+            </div>
+            </div>
             </div>
          );
     }

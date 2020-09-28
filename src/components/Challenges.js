@@ -3,13 +3,18 @@ import '../style/Basic.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { connect } from 'react-redux'
-import { Container, Image } from 'semantic-ui-react'
+import { Container, Image, Button, Icon } from 'semantic-ui-react'
 import Slider from "react-slick";
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
 import { loginSuccess } from '../actions/auth'
+import ChallengesForm from './ChallengesForm';
 
 class Challenges extends React.Component {
+    state = {
+        isClicked: false,
+        challenges: []
+    }
     componentDidMount() {
         const token = localStorage.getItem('CreativePlace')
         if(!token){
@@ -27,6 +32,42 @@ class Challenges extends React.Component {
                     this.props.loginSuccess(data)
                 })
         }
+        fetch('http://localhost:3001/challenges')
+            .then(resp => resp.json())
+            .then(data => {
+                this.setState({ challenges: data });
+            })
+    }
+
+    handleForm = () => {
+        this.setState({ isClicked: !this.state.isClicked });
+        fetch('http://localhost:3001/challenges')
+            .then(resp => resp.json())
+            .then(data => {
+                this.setState({ challenges: data });
+            })
+    }
+
+    deleteChallenge = (e, challenge) => {
+        const regObj = {
+            method: 'DELETE',
+        }
+        fetch(`http://localhost:3001/challenges/${challenge.id}`, regObj)
+           this.setState({ challenges: this.state.challenges.filter(t => t.id !== challenge.id)});
+    }
+
+    renderChallenges = () => {
+        { return this.state.challenges.map(challenge => {
+            return (
+                <div id="challenge-card">
+                    { challenge.user_id === this.props.auth.id ? <Icon name="x" size='large' onClick={()=>this.deleteChallenge( this, challenge )}></Icon> : null }
+                    <h3>{challenge.title}</h3>
+                    <p>length: {challenge.length}</p>
+                    <p>description: {challenge.description}</p>
+                    <img height="200" width="200" src={challenge.img_url} alt=''/>
+                </div>
+            )
+        })}
     }
     
     render() { 
@@ -66,7 +107,7 @@ class Challenges extends React.Component {
                         <div>
                             <h3>Mermay</h3>
                             <Image height="250" width="250" src='https://cdnb.artstation.com/p/assets/images/images/018/417/287/large/mike-gamble-mermay-mermaids-2019-x.jpg?1559285988' alt=''/>
-                            <p><a href="https://www.mermay.com/" target="_blank" rel="noopener noreferrer">Mermay</a> was started by Tom Bancroft in 2016. This challange is drawing mermaids everyday in the month of May. There is a propmt but you do not have to follow strickly.</p>     
+                            <p><a href="https://www.mermay.com/" target="_blank" rel="noopener noreferrer">Mermay</a> was started by Tom Bancroft in 2016. This challenge is drawing mermaids everyday in the month of May. There is a propmt but you do not have to follow strickly.</p>     
                         </div>
                         <div>
                             <h3>Different Styles</h3>
@@ -103,8 +144,11 @@ class Challenges extends React.Component {
                     <br/>
                 </Container>
                 <Container>
-                    <h3>User Challanges</h3>
-
+                    { !this.state.isClicked ? null : < ChallengesForm /> } 
+                    { !this.state.isClicked ? <Button onClick={this.handleForm}>Create Challenge</Button> : <Button  color="blue" onClick={this.handleForm}>Close Form</Button>}
+                </Container>
+                <Container>
+                   < this.renderChallenges />
                 </Container>
             </Container>
         </div> );

@@ -1,15 +1,29 @@
+/* header */
+#idea-title{
+  left: 200%;
+  margin-top: 1px;
+  margin-left: 15px;
+  color: 	cyan;
+  /* font-family: 'Lobster'; */
+  font-weight: bold;
+  font-size: 50px;
+}
+
+/* Navigation */
 #nav-bar-idea{
     z-index: 100;
     padding: 20px;
   } 
   
-  #nav-bar-idea p{
+#nav-bar-idea p{
     z-index: 100;
-    font-family: 'Lobster';
+    /* font-family: 'Lobster'; */
+    font-weight: bold;
     font-size: 20px;
-    border-radius: 15px;
-    color: 	 white;
-    border: solid white 2px;
+    border-radius: 4px;
+    color: 	 	cyan;
+    border: solid 	cyan 2px;
+    background-color: rgba(224, 255, 255, 0.2);
     padding: 10px;
     margin-right: 10px;
     display: inline;
@@ -17,18 +31,144 @@
 
  #nav-bar-idea p:hover { 
    z-index: 100;
-   background-color: white;
-   color:	black; 
+   background-color: 	cyan;
+   color:		darkcyan; 
   }
 
-  #main-container-idea{
-    background-image: url('https://www.esa.int/extension/pillars/design/pillars/images/nebula.jpg');
+  /* Main Background */
+  #background-image-idea{
+    position: absolute;
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 650px;
+    -webkit-filter: brightness(0.4);
+    filter: brightness(2.5);
+  }
+  #idea-artbox{
+    z-index: 100;
+    position: absolute;
+    left: 0%;
+    top: 130%;
   }
 
+  /* idea generator text */
   #saying-area{
-    background-color: white;
+    position: absolute;
+    z-index: 100;
+    left: 37%;
+    top: 200%;
+    transform: rotate(-15deg);
+    width: 300px;
+    height: 65px;
+    font-family: 'Lobster';
+    font-size: 35px;
   }
+
+  #idea-body{
+    text-align: center;
+  }
+
+  #spaceship {
+    left: 10%;
+    top: 145%;
+    position: absolute;
+    z-index: 9;
+    transform: rotate(-15deg);
+  }
+
+ #idea-generate{
+  position: absolute;
+  z-index: 111;
+  top: 360%;
+  left: 40%;
+  /* font-family: 'Lobster'; */
+  /* font-size: 22px; */
+  background-color: rgba(224, 255, 255, 0.2);
+ }
+
+ #idea-save{
+  position: absolute;
+  z-index: 9;
+  right: 30%;
+  top: 345%;
+  /* font-family: 'Lobster'; */
+  /* font-size: 22px; */
+  background-color: rgba(224, 255, 255, 0.2);
+ }
+
+ #idea-extra{
+  position: absolute;
+  z-index: 10;
+  right: 10%;
+  top: 320%;
+  /* font-family: 'Lobster'; */
+  /* font-size: 22px; */
+  background-color: rgba(224, 255, 255, 0.2);
+ }
+
+ #idea-error{
+  position: absolute;
+  z-index: 200;
+  height: 130px;
+  width: 375px;
+  right: 0%;
+  top: 90%
+ }
+
+ #idea-error-message {
+  height: 65px;
+  width: 250px;
+  position: absolute;
+  z-index: 210;
+  right: 6%;
+  top: 88%;
+  text-align: center;
+  font-family: 'Lobster';
+  font-size: 16px;
+  font-size: 2.1vw;
+ }
+
+.stars, .twinkling {
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+width:100%;
+height:100%;
+}
+
+.stars {
+background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+z-index:2;
+}
+
+.twinkling{
+background: url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+z-index:1;
+-moz-animation:move-twink-back 250s linear infinite;
+-ms-animation:move-twink-back 150s linear infinite;
+-o-animation:move-twink-back 250s linear infinite;
+-webkit-animation:move-twink-back 150s linear infinite;
+animation:move-twink-back 250s linear infinite;
+}
+
+@keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-1000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-2000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-1000px 5000px;}
+}
