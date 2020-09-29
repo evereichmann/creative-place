@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Grid } from 'semantic-ui-react'
+import '../style/Color.css'
+import { Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -173,33 +174,23 @@ class ColorGenerator extends React.Component {
         })     
         return ( 
             <div id="main-container-color">
+                <img id="color-background" src="https://i.ibb.co/6gTq8mm/Screen-Shot-2020-09-29-at-11-21-28-AM.png" alt=""/>
                 <Container>
-                    <Grid>
-                    <Grid.Row></Grid.Row>
-                    <Grid.Row>
-                <div id="nav-bar-basic">
+                <h1 id="color-title">Color Generator</h1>    
+                <div id="nav-bar-color">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
-                </Grid.Row>
-                <Grid.Row></Grid.Row>
-                <Grid.Row>
                 <select value={this.state.value} onChange={this.handleChange}>
                     <option value="">How many colors</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                </Grid.Row>
-                <Grid.Row>
                 {colorarr.length ? colorarr : null}
-                </Grid.Row>
-                <Grid.Row>
                 <button onClick={this.handleClick}>Generate</button>
                 <button onClick={this.handleSave}>Save</button>
                 <button onClick={this.handleExtraHelp}>Extra Help</button>
-                </Grid.Row>
                 { this.state.error ? <h2>{ this.state.error }</h2> : null }
-                </Grid>
                 </Container>
             </div>
          );
