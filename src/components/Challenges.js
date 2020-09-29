@@ -3,7 +3,7 @@ import '../style/Basic.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { connect } from 'react-redux'
-import { Container, Image, Button, Icon } from 'semantic-ui-react'
+import { Container, Image, Button, Icon, Card } from 'semantic-ui-react'
 import Slider from "react-slick";
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -60,14 +60,16 @@ class Challenges extends React.Component {
         { return this.state.challenges.map(challenge => {
             return (
                 <div id="challenge-card">
+                    <Card style={{margin: "10px", padding: "10px"}}>
                     {this.props.auth ? 
                      challenge.user_id === this.props.auth.id ? <Icon name="x" size='large' onClick={()=>this.deleteChallenge( this, challenge )}></Icon> : null 
                     : 
                     null  }
-                    <h3>{challenge.title}</h3>
-                    <p>length: {challenge.length}</p>
-                    <p>description: {challenge.description}</p>
-                    { challenge.img_url === "" ? null : <img height="200" width="200" src={challenge.img_url} alt=''/> }
+                     <Card.Header><h3>{challenge.title}</h3></Card.Header>
+                     <Card.Meta><p>length: {challenge.length}</p></Card.Meta>
+                     <Card.Description><p>description: {challenge.description}</p></Card.Description>
+                    { challenge.img_url === "" ? null : <Image wrapped ui={false} src={challenge.img_url} alt=''/> }
+                    </Card>
                 </div>
             )
         })}
@@ -146,10 +148,14 @@ class Challenges extends React.Component {
                     </div>
                     <br/>
                 </Container>
+                <Container style={{padding: "20px"}}>
                 { !this.state.isClicked ? null : < ChallengesForm /> } 
                 { !this.state.isClicked ? <Button onClick={this.handleForm}>Create Challenge</Button> : <Button  color="blue" onClick={this.handleForm}>Close Form</Button>}
+                </Container>
                 <Container>
-                   < this.renderChallenges />
+                    <Card.Group itemsPerRow={3}>
+                        < this.renderChallenges />
+                    </Card.Group>
                 </Container>
             </Container>
         </div> );

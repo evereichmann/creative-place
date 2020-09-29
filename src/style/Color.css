@@ -1,3 +1,42 @@
-main-container-color{
-    
+#color-title{
+    left: 200%;
+    margin-top: 1px;
+    margin-left: 15px;
+    color: 	white;
+    font-family: 'Lobster';
+    font-weight: bold;
+    font-size: 50px;
+  }
+
+#color-background{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+#nav-bar-color{
+    z-index: 100;
+    padding: 20px;
+  } 
+  
+  #nav-bar-color p{
+    z-index: 100;
+    font-family: 'Lobster';
+    font-size: 20px;
+    border-radius: 15px;
+    color: 	 white;
+    border: solid white 2px;
+    padding: 10px;
+    margin-right: 10px;
+    display: inline;
+
+ }
+
+ #nav-bar-color p:hover { 
+   z-index: 100;
+   background-color: white;
+   color:	black; 
+  }
