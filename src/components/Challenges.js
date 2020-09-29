@@ -60,14 +60,16 @@ class Challenges extends React.Component {
         { return this.state.challenges.map(challenge => {
             return (
                 <div id="challenge-card">
-                    <Card style={{margin: "10px", padding: "10px"}}>
+                    <Card style={{margin: "10px", padding: "10px", height: "400px"}}>
                     {this.props.auth ? 
                      challenge.user_id === this.props.auth.id ? <Icon name="x" size='large' onClick={()=>this.deleteChallenge( this, challenge )}></Icon> : null 
                     : 
                     null  }
                      <Card.Header><h3>{challenge.title}</h3></Card.Header>
                      <Card.Meta><p>length: {challenge.length}</p></Card.Meta>
+                     <br/>
                      <Card.Description><p>description: {challenge.description}</p></Card.Description>
+                     <br/>
                     { challenge.img_url === "" ? null : <Image wrapped ui={false} src={challenge.img_url} alt=''/> }
                     </Card>
                 </div>
