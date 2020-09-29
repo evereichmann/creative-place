@@ -7,7 +7,7 @@
     z-index: 100;
     font-family: 'Lobster';
     font-size: 20px;
-    border-radius: 15px;
+    border-radius: 5px;
     color: 	 grey;
     border: solid grey 2px;
     padding: 10px;
@@ -24,4 +24,35 @@
 
   #slider-div{
     height: 500px;
+  }
+
+  #idea-div {
+    /* background-color: lightblue; */
+    /* width: 350px; */
+    border: 1px solid grey;
+    height: 250px;
+    overflow: scroll;
+    overflow-x: auto;
+    margin: 3px;
+    padding: 5px;
+  }
+
+  #image-div{
+    border: 1px solid grey;
+    /* width: 300px; */
+    height: 250px;
+    overflow: scroll;
+    overflow-x: auto;
+    /* margin: 5px; */
+    padding: 5px;
+  }
+
+  #color-card{
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  #artbox-items{
+    column-count: 3;
   }

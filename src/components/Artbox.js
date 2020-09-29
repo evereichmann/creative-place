@@ -43,7 +43,7 @@ class Artbox extends React.Component {
                 <div>
                     <Container>
                      <ul> 
-                    <li key={item.id}>{item.name} | {item.description}<Icon name="x" size='large' onClick={()=>this.deleteItem( this, item )}></Icon></li>
+                    <li key={item.id}>{item.name} | {item.description}<Icon name="x" onClick={()=>this.deleteItem( this, item )}></Icon></li>
                     </ul>  
                     </Container>
                 </div>
@@ -65,22 +65,30 @@ class Artbox extends React.Component {
         return ( 
             <div>
                 <Container>
+                <br/>
+                <br/>    
                 <Grid>
-                <Grid.Row></Grid.Row>
-                <Grid.Row>
                 <div id="nav-bar-basic">
                     { this.props.auth ? <LoginNav /> : <LogoutNav /> }
                 </div>
-                </Grid.Row>
-                <Grid.Row>
-                    <img height="150px" width="200px" src="https://www.netclipart.com/pp/m/23-239279_28-collection-of-boxes-clipart-clip-art-box.png" alt=""/>
-                </Grid.Row>
-                <Grid.Row>
-                    < ItemForm />
+                <Grid.Row columns={2}>
+                    <Grid.Column>
+                        <img height="150px" width="200px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <br/>
+                        <br/>
+                        < ItemForm />
+                    </Grid.Column>    
                 </Grid.Row>
                 </Grid>
             </Container>
+            <Container>
+                <br/>
+                <div id="artbox-items">
                    {this.props.auth ? <this.renderPage/> : null }
+                </div>
+            </Container>                 
         </div>
           );
     }

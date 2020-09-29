@@ -97,30 +97,30 @@ class UserProfile extends React.Component {
                 <Grid.Row columns={2}>
                     <Grid.Column>
                         <Avatar color={color} name={username} round={true}/>
-                        <p></p>
-                        <p></p>
-                        <p>Name: { this.props.auth.first_name} { this.props.auth.last_name}</p>
+                        <br/>
+                        <br/>
+                        <Link to='profile/artbox'><img height="100px" width="100px" src="https://i.ibb.co/cxQw7W0/Screen-Shot-2020-09-22-at-5-11-30-PM.png" alt=""/><p>ArtBox Click To Add Items</p></Link>
                     </Grid.Column>
                     <Grid.Column>
-                    <p></p>
-                    <p></p>
-                        <Link to='profile/artbox'><img height="150px" width="200px" src="https://www.netclipart.com/pp/m/23-239279_28-collection-of-boxes-clipart-clip-art-box.png" alt=""/></Link>
-                    </Grid.Column>
-                </Grid.Row>
-                </Grid>
+                        {/* right top column */}
+                        <div id="idea-div">
                          { this.props.auth.ideas.map(idea => {
                              return (
                                 <div>
-                                    <h1>{idea.saying}</h1>
-                                    <Icon name="x" size='large' onClick={()=>this.deleteIdea( this, idea )}></Icon>
+                                    <h3><Icon name="x" size='large' onClick={()=>this.deleteIdea( this, idea )}/>{idea.saying}<br/></h3>
                                 </div>
                              )
                          })}
-
+                         </div>
+                    </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row columns={2}>
+                        <Grid.Column>
+                          <div id="image-div" >
                           { this.props.auth.images.map(image => {
                              return (
-                                 <div>
-                                <img height="100" width="100" src={image.img_url} alt=''/>
+                                <div>
+                                <img height="125" width="125" src={image.img_url} alt=''/>
                                 <Icon name="x" size='large' onClick={()=>this.deleteImage( this, image)}></Icon>
                                 <Icon name="expand arrows alternate" size='large' onClick={()=>this.handleOpen(this, image)}></Icon>
                                 <Modal
@@ -136,18 +136,28 @@ class UserProfile extends React.Component {
                                         </Modal>
                                 </div>
                                 )
-                         })}
-
+                            })}
+                            </div>  
+                        </Grid.Column>
+                        <Grid.Column>  
+                        <div id="image-div">
                          { this.props.auth.palletes.map(pallete => {
                              return (
-                             <div>
-                                 <h1>{pallete.id}</h1><h3 style={{color: `rgb(${pallete.color_one_rgb_value})`,}}>{pallete.color_one_rgb_value}</h3>
-                                 <h3 style={{color: `rgb(${pallete.color_two_rgb_value})`,}}>{pallete.color_two_rgb_value}</h3>
-                                 <h3 style={{color: `rgb(${pallete.color_three_rgb_value})`,}}>{pallete.color_three_rgb_value}</h3>
-                                 <Icon name="x" size='large' onClick={()=>this.deletePallete(this, pallete)}></Icon>
-                                 </div>
-                                 )
+                             <div id="color-card">
+                                <Icon name="x" size='large' onClick={()=>this.deletePallete(this, pallete)}/>
+                                <h2 style={{backgroundColor: `rgb(${pallete.color_one_rgb_value})`,}}> {pallete.color_one_rgb_value}</h2>
+                                <h2 style={{backgroundColor: `rgb(${pallete.color_two_rgb_value})`,}}> {pallete.color_two_rgb_value}</h2>
+                                <h2 style={{backgroundColor: `rgb(${pallete.color_three_rgb_value})`,}}> {pallete.color_three_rgb_value}</h2>
+                            </div>
+                             )
                          })}
+                         </div> 
+                        </Grid.Column>
+                    </Grid.Row>
+                {/* </Grid.Row> */}
+                </Grid>
+
+
             </div>
         )
     }
@@ -156,23 +166,19 @@ class UserProfile extends React.Component {
         return ( 
             <div>
             <Container> 
-            <Grid>     
-                 <Grid.Row></Grid.Row>
-                 <Grid.Row></Grid.Row>
              <div id="nav-container-basic">
-                 <Grid.Row>
-                        <div id="nav-bar-basic">
-                        { this.props.auth ? <LoginNav /> : <LogoutNav /> }
-                        </div>
-                        </Grid.Row>
-                    </div>
-                    <Grid.Row></Grid.Row>
-                    <Container>
-                    <div>
-                        { this.props.auth ? < this.renderPage /> : <h1>Welcome to Creative Place</h1>}  
-                    </div>
-                    </Container>
-                </Grid> 
+                <Container>
+                <br/>
+                <div id="nav-bar-basic">
+                    { this.props.auth ? <LoginNav /> : <LogoutNav /> }
+                </div>
+                <br/>
+                <br/>
+                </Container>
+                </div>
+                <div>
+                    { this.props.auth ? < this.renderPage /> : <h1>Welcome to Creative Place</h1>}  
+                </div> 
             </Container>         
         </div>
          );
