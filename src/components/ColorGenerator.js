@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/Color.css'
-import { Container } from 'semantic-ui-react'
+import { Container, Button} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
@@ -160,37 +160,44 @@ class ColorGenerator extends React.Component {
 
     render() { 
         let colorarr = this.state.selectedColor.map(c => {
-            return (<div>
+            return (<div id="color-div">
             <div 
                 style={{
                     height: '200px',
                     width: '200px',
                     backgroundColor: `rgb(${c.rgb_value})`,
-                }}>
+                }} id="color-cards">
+                <p id="color-name">{ c.name }</p>
                 </div>
-                <p>{ c.name }</p>
             </div>
             )
         })     
         return ( 
             <div id="main-container-color">
-                <img id="color-background" src="https://i.ibb.co/6gTq8mm/Screen-Shot-2020-09-29-at-11-21-28-AM.png" alt=""/>
+                <img id="color-sky-background" src="https://i.ibb.co/db1Q3r3/Screen-Shot-2020-09-30-at-11-50-28-AM.png" alt=""/>
+                <img id="background-builds" src="https://i.ibb.co/pfRCXfg/Screen-Shot-2020-09-30-at-12-05-02-PM.png" alt=""/>
                 <Container>
+                <img id="godzilla" src="https://i.ibb.co/0npvK9c/Screen-Shot-2020-09-30-at-10-56-07-AM.png" alt="" />
                 <h1 id="color-title">Color Generator</h1>    
                 <div id="nav-bar-color">
                 { this.props.auth ? <LoginNav /> : <LogoutNav />}
                 </div>
+                <Container>
+                <div id="select">
                 <select value={this.state.value} onChange={this.handleChange}>
                     <option value="">How many colors</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
+                </div>
+                <Button id="color-generate" onClick={this.handleClick}>Generate</Button>
+                <Button id="color-save" onClick={this.handleSave}>Save</Button>
+                <Button id="color-extra"onClick={this.handleExtraHelp}>Extra Help</Button>
+                { this.state.error ? <h2 id="color-error">{ this.state.error }</h2> : null }
+                { this.state.error ? <img id="color-error-img" src="https://i.ibb.co/99DHf38/Screen-Shot-2020-09-28-at-9-40-36-AM.png" alt=""/> : null }
                 {colorarr.length ? colorarr : null}
-                <button onClick={this.handleClick}>Generate</button>
-                <button onClick={this.handleSave}>Save</button>
-                <button onClick={this.handleExtraHelp}>Extra Help</button>
-                { this.state.error ? <h2>{ this.state.error }</h2> : null }
+                </Container>
                 </Container>
             </div>
          );
