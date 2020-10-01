@@ -115,7 +115,9 @@ class ImageGenerator extends React.Component {
     render() {
         return ( 
             <div id="main-container-image">
-                {/* <img id="image-background" src="https://i.ibb.co/86xRDZy/Screen-Shot-2020-09-28-at-3-54-13-PM.png" alt=""/> */}
+                <img id="image-background" src="https://images.clipartlogo.com/files/istock/previews/8173/81732205-seamless-grey-background-wall-of-rectangular-bricks.jpg" alt=""/>
+                <img id="creepy-eyes" src="https://i.ibb.co/74MYYG3/Screen-Shot-2020-09-30-at-2-15-28-PM.png" alt="" /> 
+                <img id="guy" src="https://i.ibb.co/hfJkCbN/Screen-Shot-2020-10-01-at-9-45-56-AM.png" alt="" />
                 <Container>    
                 <h1 id="image-title">Image Generator</h1>
                 <div id="nav-bar-image">

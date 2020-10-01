@@ -61,7 +61,7 @@
     position: absolute;
     animation-iteration-count: infinite;
     transform-style: preserve-3d;
-    animation-duration: 115s;
+    animation-duration: 100s;
   }
 
   @keyframes godzilla {
