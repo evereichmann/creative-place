@@ -8,30 +8,32 @@
 }
 
 #image-title{
-  z-index: 100;
   font-family: Lobster;
+  color: black;
   padding-top: 15px;
-  font-size: 50px;
+  font-size: 75px;
   margin-left: 16px;
 }
 
 #nav-bar-image{
   z-index: 100;
   padding: 25px;
-  margin-top: 90px;
+  margin-top: 15px;
 } 
 
 #nav-bar-image p{
     z-index: 100;
-    font-family: 'Lobster';
+    position: relative;
+    /* font-family: 'Lobster'; */
     font-size: 22px;
     border-radius: 5px;
-    color: grey;
+    color: rgb(98, 98, 98);
     /* border: solid grey 2px; */
     background-color: lightgrey;
     padding: 10px;
     margin-right: 10px;
     display: inline;
+    font-weight: bold;
 
  }
 
@@ -45,7 +47,7 @@
     z-index: 100;
     left: 30%;
     top: 100%;
-    /* border: 6px solid brown; */
+    border: 10px solid white;
     position: absolute;
     font-family: Lobster;
   }
@@ -97,15 +99,43 @@
 
   #image-error-message{
     /* border: 2px solid pink; */
-    height: 75px;
-    width: 150px;
+    height: 65px;
+    width: 160px;
     z-index: 70;
     position: absolute;
-    right: 14%;
-    top: 80%;
+    right: 13%;
+    top: 85%;
     text-align: center;
     font-family: 'Lobster';
     font-size: 16px;
     font-size: 1.6vw;
   }
 
+#creepy-eyes{
+  z-index: 70;
+  position: absolute;
+  height: 35px;
+  width: 100px;
+  top: 257px;
+  left: 77px;
+  border-radius: 23%;
+  animation-name: creepyeyes;
+  animation-iteration-count: infinite;
+  animation-duration: 30s;
+}
+
+@keyframes creepyeyes {
+  0%{opacity: 0;}
+  25%{opacity: 0.5;}
+  50%{opacity: 1;}
+  75%{opacity: 0.5;}
+  100%{opacity: 0;}
+}
+
+#guy{
+  z-index: 50;
+  height: 85%;
+  right: -105px;
+  bottom: 0px;
+  position: absolute;
+}
