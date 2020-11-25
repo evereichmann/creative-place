@@ -13,7 +13,7 @@ class Library extends React.Component {
     }
     
     componentDidMount() {
-        fetch('http://localhost:3001/books')
+        fetch('https://creativeplaceapi.herokuapp.com/books')
             .then(resp => resp.json())
             .then(data => {
                 this.setState({ books: data });

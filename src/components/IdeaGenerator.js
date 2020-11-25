@@ -20,10 +20,10 @@ class IdeaGenerator extends React.Component {
     }
 
      componentDidMount() {
-         fetch('http://localhost:3001/ideas')
+         fetch('https://creativeplaceapi.herokuapp.com/ideas')
             .then(resp => resp.json())
             .then(data => {
-                this.setState({ ideas: data});
+                this.setState({ ideas: data, error: "I'm loaded and ready to go"});
             })
             const token = localStorage.getItem('CreativePlace')
             if(!token){
@@ -119,7 +119,7 @@ class IdeaGenerator extends React.Component {
                             <h2 id="saying-area">{this.state.clicked && this.state.selectedIdea.saying}</h2>  
                             <img id="spaceship" src="https://i.ibb.co/n3XTxxC/Screen-Shot-2020-09-28-at-9-39-06-AM.png" alt=""/>
                             <Button inverted color='teal' size='big' id="idea-generate" onClick={this.handleClick}>Generate</Button>
-                            <Button inverted color='teal' size='big' id="idea-save" onClick={this.handleSave}>Save</Button>
+                            {/* <Button inverted color='teal' size='big' id="idea-save" onClick={this.handleSave}>Save</Button> */}
                             <Button inverted color='teal' size='big' id="idea-extra" onClick={this.handleExtrHelp}>Extra Help</Button>
                         </div>
                 </Container>

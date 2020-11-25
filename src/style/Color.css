@@ -30,7 +30,7 @@
 }
 
 #nav-bar-color{
-    top: 210px;
+    top: 270px;
     z-index: 1000;
     padding: 20px;
     position: absolute;
@@ -140,7 +140,7 @@ select:focus {
     z-index: 15;
     position: absolute;
     top: 260px;
-    left: 340px;
+    left: 260px;
   }
 
   #color-div{
@@ -171,8 +171,8 @@ select:focus {
     width: 250px;
     position: absolute;
     z-index: 210;
-    right: 8%;
-    top: 160px;
+    right: 4%;
+    top: 260px;
     text-align: center;
     font-family: 'Lobster';
     font-size: 16px;
@@ -185,6 +185,6 @@ select:focus {
     height: 150px;
     width: 320px;
     transform: scaleX(-1);
-    right: 4%;
-    top: 150px;
+    right: 0%;
+    top: 240px;
   }

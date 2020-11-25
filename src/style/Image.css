@@ -59,23 +59,23 @@
     position: absolute;
   }
 
-  #image-save-button{
+  /* #image-save-button{
+    z-index: 100;
+    top: 350px;
+    left: 3%;
+    position: absolute;
+  } */
+
+  #image-help-button{
     z-index: 100;
     top: 350px;
     left: 3%;
     position: absolute;
   }
 
-  #image-help-button{
-    z-index: 100;
-    top: 400px;
-    left: 3%;
-    position: absolute;
-  }
-
   #image-color-button{
     z-index: 100;
-    top: 450px;
+    top: 400px;
     left: 3%;
     position: absolute;
   }
@@ -114,11 +114,11 @@
 #creepy-eyes{
   z-index: 70;
   position: absolute;
-  height: 35px;
-  width: 100px;
-  top: 257px;
-  left: 77px;
-  border-radius: 23%;
+  height: 53px;
+  width: 135px;
+  top: 218px;
+  left: 248px;
+  border-radius: 22%;
   animation-name: creepyeyes;
   animation-iteration-count: infinite;
   animation-duration: 30s;
