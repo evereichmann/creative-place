@@ -35,6 +35,8 @@ class About extends React.Component {
             </div>
             <h1>About Us</h1>
             <p>Well look at you! You fond me! There are plenty of hidden easter eggs throughout this site and will be constantly changing. This site is here to inspire your inner child and make you want to create. We are here to help you start an adventure inside yourself.</p>
+
+
             </Container>
         </div>
          );
