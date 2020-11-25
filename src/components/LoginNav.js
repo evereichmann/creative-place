@@ -13,12 +13,12 @@ class LoginNav extends React.Component {
   renderLoginNav = () => {
     return (
       <div>
-            <Link to="/profile"><p>Hello User</p></Link> 
-            <Link to="/" onClick={this.handleLogout}><p>Logout</p></Link>
+            {/* <Link to="/profile"><p>Hello User</p></Link> 
+            <Link to="/" onClick={this.handleLogout}><p>Logout</p></Link> */}
             <Link to="/"><p>Main</p></Link>  
             <Link to="/library"><p>Library</p></Link>
             <Link to="/skilldrills"><p>Skill Drills</p></Link> 
-            <Link to='challenges'><p>Challenges</p></Link> 
+            {/* <Link to='challenges'><p>Challenges</p></Link>  */}
       </div>
     )
   }

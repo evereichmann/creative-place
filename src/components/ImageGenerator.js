@@ -21,10 +21,10 @@ class ImageGenerator extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/images')
+        fetch('https://creativeplaceapi.herokuapp.com/images')
             .then(resp => resp.json())
             .then(data => {
-                this.setState({ images: data });
+                this.setState({ images: data, error: "I'm loaded and ready to go" });
             })
             const token = localStorage.getItem('CreativePlace')
             if(!token){
@@ -127,7 +127,7 @@ class ImageGenerator extends React.Component {
                     <Image height="350px" width="350px" id="image" src={this.state.clicked && this.state.selectedImage.img_url} alt=""/>    
                 </div>
                 <Button size='large' id="image-generate-button" onClick={this.handleClick}>Generate</Button>
-                <Button size='large' id="image-save-button" onClick={this.handleSave}>Save</Button>
+                {/* <Button size='large' id="image-save-button" onClick={this.handleSave}>Save</Button> */}
                 <Button size='large' id="image-help-button" onClick={this.handleExtraHelp}>Extra Help</Button>
                 {this.state.bAndW? <Button size='large' id="image-color-button" onClick={this.handleColor}>Color</Button> : <Button size='large' id="image-color-button" onClick={this.handleColorGrey}>Black&White</Button> }
                 { this.state.error ? <h2 id="image-error-message">{ this.state.error }</h2> : null }

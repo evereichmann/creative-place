@@ -20,10 +20,10 @@ class ColorGenerator extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/colors')
+        fetch('https://creativeplaceapi.herokuapp.com/colors')
             .then(resp => resp.json())
             .then(data => {
-                this.setState({ colors: data });
+                this.setState({ colors: data, error: "I'm loaded and ready to go" });
             })
             const token = localStorage.getItem('CreativePlace')
         if(!token){
@@ -192,7 +192,7 @@ class ColorGenerator extends React.Component {
                 </select>
                 </div>
                 <Button id="color-generate" onClick={this.handleClick}>Generate</Button>
-                <Button id="color-save" onClick={this.handleSave}>Save</Button>
+                {/* <Button id="color-save" onClick={this.handleSave}>Save</Button> */}
                 <Button id="color-extra"onClick={this.handleExtraHelp}>Extra Help</Button>
                 { this.state.error ? <h2 id="color-error">{ this.state.error }</h2> : null }
                 { this.state.error ? <img id="color-error-img" src="https://i.ibb.co/99DHf38/Screen-Shot-2020-09-28-at-9-40-36-AM.png" alt=""/> : null }
